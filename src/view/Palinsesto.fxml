@@ -22,5 +22,6 @@
         </columns>
       </TableView>
       <Button fx:id="buttonBack" layoutX="545.0" layoutY="422.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="444.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" styleClass="background" stylesheets="@Theme.css" />
    </children>
 </AnchorPane>
