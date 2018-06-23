@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.40257879656160456" layoutX="213.0" layoutY="141.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -33,12 +32,12 @@
                               <Font name="Times New Roman Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="15.0" layoutY="280.0" prefHeight="29.0" prefWidth="248.0" text="una emittente TV di picola e media " textAlignment="CENTER" textFill="WHITE">
+                        <Label layoutX="15.0" layoutY="280.0" prefHeight="29.0" prefWidth="248.0" text="piccola e media grandezza." textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Times New Roman Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="15.0" layoutY="302.0" prefHeight="29.0" prefWidth="248.0" text="grandezza." textFill="WHITE">
+                        <Label layoutX="15.0" layoutY="302.0" prefHeight="29.0" prefWidth="248.0" textFill="WHITE">
                            <font>
                               <Font name="Times New Roman Italic" size="14.0" />
                            </font>
