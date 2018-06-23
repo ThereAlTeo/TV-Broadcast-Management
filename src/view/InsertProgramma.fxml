@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="18.0" layoutY="24.0" text="IdProgramma" />
+      <Label layoutX="18.0" layoutY="24.0" text="ID Programma" />
       <Label layoutX="38.0" layoutY="57.0" text="Nome" />
       <Label layoutX="266.0" layoutY="57.0" text="Tipologia" />
       <TextField fx:id="textFieldIDProgramma" layoutX="99.0" layoutY="20.0" />

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane layoutX="213.0" layoutY="141.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -65,7 +65,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="645.0" layoutY="451.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="39.0" style="-fx-border-radius: 5em; -fx-background-color: #FFFFFF;" text="Back" textFill="#1b6cd7">
+                        <Button layoutX="638.0" layoutY="451.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 5em; -fx-background-color: #FFFFFF;" text="Back" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>

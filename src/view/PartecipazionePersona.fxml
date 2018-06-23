@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="181.0" layoutY="120.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -40,7 +39,7 @@
                         <Label fx:id="textFieldCognome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Data di nascita" GridPane.rowIndex="2" />
                         <Label fx:id="textFieldNascita" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Via " GridPane.rowIndex="3" />
+                        <Label text="Via" GridPane.rowIndex="3" />
                         <Label fx:id="textFieldVia" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
@@ -50,10 +49,10 @@
                <children>
                   <TableView layoutX="57.0" prefHeight="316.0" prefWidth="417.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="155.0" text="Programma" />
-                      <TableColumn prefWidth="108.0" text="Numero Puntata" />
-                        <TableColumn prefWidth="73.0" text="Data" />
-                        <TableColumn text="Ruolo" />
+                      <TableColumn prefWidth="132.0" text="Programma" />
+                      <TableColumn prefWidth="119.0" text="Numero Puntata" />
+                        <TableColumn prefWidth="77.0" text="Data" />
+                        <TableColumn prefWidth="88.0" text="Ruolo" />
                     </columns>
                   </TableView>
                   <Button layoutX="362.0" layoutY="359.0" mnemonicParsing="false" text="Back" />

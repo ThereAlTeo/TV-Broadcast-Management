@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TableView layoutX="68.0" layoutY="60.0" prefHeight="200.0" prefWidth="461.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="60.0">
          <columns>
@@ -16,7 +16,7 @@
             <TableColumn prefWidth="180.0" text="Studio di Registrazione" />
          </columns>
       </TableView>
-      <Label layoutX="193.0" layoutY="25.0" text="Elelnco Programmi" AnchorPane.topAnchor="25.0">
+      <Label layoutX="193.0" layoutY="25.0" text="Elenco Programmi" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
