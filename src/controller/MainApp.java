@@ -1,14 +1,18 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Application extends javafx.application.Application {
+public class MainApp extends Application {
 
 	private Stage primaryStage;
     private BorderPane rootLayout;
@@ -16,7 +20,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("AddressApp");
+        this.primaryStage.setTitle("Emittente TV.");
 
         initRootLayout();
 
@@ -29,8 +33,8 @@ public class Application extends javafx.application.Application {
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Application.class.getResource("view/RootLayout.fxml"));
+        	FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(new File("src/view/RootLayout.fxml").toURI().toURL());
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -49,7 +53,7 @@ public class Application extends javafx.application.Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Application.class.getResource("view/Benvenuto.fxml"));
+            loader.setLocation(new File("src/view/Benvenuto.fxml").toURI().toURL());
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
