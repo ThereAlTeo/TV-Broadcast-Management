@@ -1,9 +1,7 @@
 package model;
 
+import utility.DBConnect;
+
 public class Model {
 	
-	public static void main(String[] args) {
-		DBConnect connect = new DBConnect();
-		connect.getData();
-	}	
 }
