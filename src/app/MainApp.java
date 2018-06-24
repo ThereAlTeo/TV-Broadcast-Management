@@ -1,4 +1,4 @@
-package controller;
+package app;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
 	private Stage primaryStage;
-    private BorderPane rootLayout;
+    private static BorderPane rootLayout;
 
     @Override
     public void start(Stage primaryStage) {
@@ -54,6 +54,20 @@ public class MainApp extends Application {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(new File("src/view/Benvenuto.fxml").toURI().toURL());
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void showPersonOverview2() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(new File("src/view/Canali.fxml").toURI().toURL());
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
