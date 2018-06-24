@@ -2,11 +2,9 @@ package app;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -23,8 +21,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Emittente TV");
 
         initRootLayout();
-
-        showPersonOverview();
+        showBenvenuto();
     }
 
     /**
@@ -46,10 +43,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Shows the person overview inside the root layout.
-     */
-    public void showPersonOverview() {
+    public static void showBenvenuto() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -203,7 +197,7 @@ public class MainApp extends Application {
         }
     }
     
-    public static void showAcquistoFilm() {
+    public static void showInsertAcquistoFilm() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -217,7 +211,7 @@ public class MainApp extends Application {
         }
     }
     
-    public static void showAcquistoSerieTV() {
+    public static void showInsertAcquistoSerieTV() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -273,6 +267,20 @@ public class MainApp extends Application {
         }
     }
     
+    public static void showFilmAcquistati() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(new File("src/view/FilmAcquistati.fxml").toURI().toURL());
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void showSerieTVAcquistate() {
         try {
             // Load person overview.
@@ -315,7 +323,6 @@ public class MainApp extends Application {
         }
     }
     
-
     /**
      * Returns the main stage.
      * @return

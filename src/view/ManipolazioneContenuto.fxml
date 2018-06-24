@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <SplitPane layoutX="213.0" layoutY="141.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -20,12 +20,12 @@
                               <Font name="Times New Roman Bold Italic" size="40.0" />
                            </font>
                         </Label>
-                        <Button layoutX="14.0" layoutY="99.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Canale" textFill="WHITE">
+                        <Button layoutX="14.0" layoutY="99.0" mnemonicParsing="false" onAction="#showInsertChannel" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Canale" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="243.0" layoutY="99.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Programma" textFill="#1b6cd7">
+                        <Button layoutX="243.0" layoutY="99.0" mnemonicParsing="false" onAction="#showInsertProgramma" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Programma" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -35,37 +35,37 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="473.0" layoutY="209.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Serie TV" textFill="#1b6cd7">
+                        <Button layoutX="473.0" layoutY="209.0" mnemonicParsing="false" onAction="#showInsertSerieTV" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Serie TV" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Persona" textFill="#1b6cd7">
+                        <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" onAction="#showInsertPersona" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Persona" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="14.0" layoutY="325.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione FIlm" textFill="WHITE">
+                        <Button layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#showInsertFilm" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione FIlm" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="473.0" layoutY="325.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Acquisto Serie TV" textFill="WHITE">
+                        <Button layoutX="473.0" layoutY="325.0" mnemonicParsing="false" onAction="#showInsertAcquistoSerieTV" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Acquisto Serie TV" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="243.0" layoutY="209.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Incarico" textFill="WHITE">
+                        <Button layoutX="243.0" layoutY="209.0" mnemonicParsing="false" onAction="#showInsertIncarico" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Elaborazione Incarico" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="243.0" layoutY="325.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Acquisto Film" textFill="#1b6cd7">
+                        <Button layoutX="243.0" layoutY="325.0" mnemonicParsing="false" onAction="#showInsertAcquistoFilm" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="Elaborazione Acquisto Film" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="638.0" layoutY="451.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 5em; -fx-background-color: #FFFFFF;" text="Back" textFill="#1b6cd7">
+                        <Button layoutX="638.0" layoutY="451.0" mnemonicParsing="false" onAction="#showMenuPrincipale" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 5em; -fx-background-color: #FFFFFF;" text="Back" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
