@@ -14,7 +14,7 @@ public class DBConnect {
 	public DBConnect() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/progettodb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/emittentetv?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 			st = con.createStatement();
 			
 		} catch (Exception ex) {
