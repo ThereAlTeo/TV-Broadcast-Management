@@ -23,7 +23,17 @@ public class DBConnect {
 		}
 	}
 	
-	public void getData() {
+	public ResultSet getResultOf(String value) {
+		try {
+			rs = st.executeQuery(value);
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return rs;
+	}
+	
+	/*public void getData() {
 		try {
 			String query = "select * from film";
 			rs = st.executeQuery(query);
@@ -36,5 +46,5 @@ public class DBConnect {
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
-	}
+	}*/
 }
