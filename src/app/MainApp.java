@@ -63,7 +63,7 @@ public class MainApp extends Application {
         }
     }
     
-    public static void showPersonOverview2() {
+    public static void showMenuPrincipale() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
