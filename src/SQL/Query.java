@@ -235,10 +235,11 @@ public class Query {
 	}
 	
 	public static ResultSet getPuntataConduttore(Iterator<String> date) {
-		String value = "SELECT p.nome, p.cognome, t.dataTrasmissione, pu.durata, pu.share1, pu.share2, pu.share3" + 
-				"FROM incarico i, persona p, ruolo r, puntata pu, trasmissione t" + 
-				"WHERE i.idPuntata=" + date.next() + "" + 
-				"AND i.idProgramma=" + date.next() + "" + 
+		String value = "SELECT p.nome AS nome, p.cognome AS cognome, t.dataTrasmissione AS Trasmissione, " +
+				"pu.durata AS durata, pu.share1 AS Share1, pu.share2 AS Share2, pu.share3 AS Share3" + 
+				"FROM incarico i, persona p, ruolo r, puntata pu, trasmissione t " + 
+				"WHERE i.idPuntata=" + date.next() + " " + 
+				"AND i.idProgramma=" + date.next() + " " + 
 				"AND i.CodiceFiscale=p.CodiceFiscale" + 
 				"AND i.idPuntata=pu.idPuntata" + 
 				"AND i.idProgramma=pu.idProgramma" + 
