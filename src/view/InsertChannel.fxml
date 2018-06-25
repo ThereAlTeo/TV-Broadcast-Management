@@ -28,9 +28,10 @@
       <Separator layoutX="7.0" layoutY="100.0" orientation="VERTICAL" prefHeight="68.0" prefWidth="0.0" />
       <Separator layoutX="437.0" layoutY="100.0" orientation="VERTICAL" prefHeight="68.0" prefWidth="0.0" />
       <Separator layoutX="8.0" layoutY="100.0" prefHeight="3.0" prefWidth="430.0" />
-      <Button layoutX="379.0" layoutY="222.0" mnemonicParsing="false" onAction="#buttonInserisciCanale" text="Inserisci" />
+      <Button layoutX="379.0" layoutY="222.0" mnemonicParsing="false" onAction="#cancellacanale" text="Cancella" />
       <TextField fx:id="TextFieldFrequenza" layoutX="346.0" layoutY="179.0" prefHeight="25.0" prefWidth="92.0" />
       <Label layoutX="284.0" layoutY="183.0" text="Frequenza" />
       <TextField fx:id="textFieldnomecanale" layoutX="93.0" layoutY="179.0" />
+      <Button layoutX="310.0" layoutY="222.0" mnemonicParsing="false" onAction="#buttonInserisciCanale" text="Inserisci" />
    </children>
 </AnchorPane>

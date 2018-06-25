@@ -59,21 +59,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     DatePicker datePickerCreazione; 
     @FXML
-    TextField textFieldID;
-    @FXML
-    TextField textFieldAmministratore;
-    @FXML
-    TextField textFieldNCanale;
-    @FXML
-    TextField textFieldnomecanale;
+    TextField textFieldID, textFieldAmministratore, textFieldNCanale, textFieldnomecanale;
     @FXML
     RadioButton radioButtonAcquistato;
     @FXML
-    TextField textFieldAcquistatoDa;
-    @FXML
-    TextField textFieldAcquistatoPrezzo;
-    @FXML
-    TextField TextFieldFrequenza;
+    TextField textFieldAcquistatoDa, textFieldAcquistatoPrezzo, TextFieldFrequenza;
     
     @FXML
     private void buttonInserisciCanale(ActionEvent event) throws SQLException {
@@ -89,7 +79,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(TextFieldFrequenza.getText().toString());
     	//System.out.println(date.iterator().next());
     	boolean ris = Query.InsertChannel(date.iterator());
-    	System.out.println(date);
+    	//System.out.println(date);
     	if (!ris) {
     		Alert alert2 = new Alert(AlertType.INFORMATION);
     		alert2.setTitle("Aggiunta Canale");
@@ -99,7 +89,7 @@ public class FXMLDocumentController implements Initializable {
     	} else {
     		Alert alert3 = new Alert(AlertType.INFORMATION);
     		alert3.setTitle("ERROR");
-    		alert3.setContentText("Aggiunta di Campi Errati!");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
     		alert3.showAndWait();
     	}
     }
@@ -110,8 +100,66 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    TextField textFieldIDProgramma, textFieldNome, textFieldTipologia;
+    
+    @FXML
+    private void buttonInserisciProgramma(ActionEvent event) throws SQLException {
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(textFieldIDProgramma.getText().toString());
+    	date.add(textFieldNome.getText().toString());
+    	date.add(textFieldTipologia.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertProgramme(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunto Programma");
+    		alert2.setContentText("Programma Aggiunto Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
+    }
+    
+    @FXML
     public void showInsertPuntata() {
     	MainApp.showInsertPuntata();
+    }
+    
+    @FXML
+    TextField idpun, idprog, orainizioreg, orafinereg, durata, s1, s2, s3;
+    
+    @FXML
+    private void buttonInserisciPuntata(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(idpun.getText().toString());
+    	date.add(idprog.getText().toString());
+    	date.add(orainizioreg.getText().toString());
+    	date.add(orafinereg.getText().toString());
+    	date.add(durata.getText().toString());
+    	date.add(s1.getText().toString());
+    	date.add(s2.getText().toString());
+    	date.add(s3.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertEpisode(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunta Puntata");
+    		alert2.setContentText("Puntata Aggiunta Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
     }
     
     @FXML
@@ -120,8 +168,69 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    TextField cf, ddn, nome, cognome, via, civico, città, sesso;
+    
+    @FXML
+    private void buttonInserisciPersona(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(cf.getText().toString());
+    	date.add(nome.getText().toString());
+    	date.add(cognome.getText().toString());
+    	date.add(sesso.getText().toString());
+    	date.add(ddn.getText().toString());
+    	date.add(via.getText().toString());
+    	date.add(civico.getText().toString());
+    	date.add(città.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertPersona(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunta Persona");
+    		alert2.setContentText("Persona Aggiunta Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
+    }
+    
+    @FXML
     public void showInsertIncarico() {
     	MainApp.showInsertIncarico();
+    }
+    
+    @FXML
+    TextField idp, idpr, cf2, s, r;
+    
+    @FXML
+    private void buttonInserisciIncarico(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(idp.getText().toString());
+    	date.add(idpr.getText().toString());
+    	date.add(cf2.getText().toString());
+    	date.add(s.getText().toString());
+    	date.add(r.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertIncarico(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunto Incarico");
+    		alert2.setContentText("Incarico Aggiunto Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
     }
     
     @FXML
@@ -130,8 +239,74 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    TextField ids, cd, no, t, st, e, d, l;
+    
+    @FXML
+    private void buttonInserisciSerieTv(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(ids.getText().toString());
+    	date.add(cd.getText().toString());
+    	date.add(no.getText().toString());
+    	date.add(t.getText().toString());
+    	date.add(st.getText().toString());
+    	date.add(e.getText().toString());
+    	date.add(d.getText().toString());
+    	date.add(l.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertSerieTv(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunta SerieTV");
+    		alert2.setContentText("SerieTv Aggiunta Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
+    }
+    
+    @FXML
     public void showInsertFilm() {
     	MainApp.showInsertFilm();
+    }
+    
+    @FXML
+    TextField idf, cd2, nom, dc, li;
+    DatePicker dp, du;
+    
+    @FXML
+    private void buttonInserisciFilm(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(idf.getText().toString());
+    	date.add(cd2.getText().toString());
+    	date.add(nom.getText().toString());
+    	date.add(dc.getText().toString());
+    	date.add(dp.getValue()
+				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
+    	date.add(du.getValue()
+				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
+    	date.add(li.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertFilm(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunto Film");
+    		alert2.setContentText("Film Aggiunto Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
     }
     
     @FXML
@@ -140,8 +315,68 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    TextField film, canale, prezzo;
+    DatePicker da;
+    
+    @FXML
+    private void buttonInserisciAcquistoFilm(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(film.getText().toString());
+    	date.add(canale.getText().toString());
+    	date.add(prezzo.getText().toString());
+    	date.add(da.getValue()
+				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertAcqFilm(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunto Acquisto Film");
+    		alert2.setContentText("Acquisto Film Aggiunto Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
+    }
+    
+    @FXML
     public void showInsertAcquistoSerieTV() {
     	MainApp.showInsertAcquistoSerieTV();
+    }
+    
+    @FXML
+    TextField idserie, idcan, prezz;
+    DatePicker dast;
+    
+    @FXML
+    private void buttonInserisciAcquistoSerieTv(ActionEvent event) throws SQLException {
+    	
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(idserie.getText().toString());
+    	date.add(idcan.getText().toString());
+    	date.add(prezz.getText().toString());
+    	date.add(dast.getValue()
+				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.InsertAcqFilm(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Aggiunto Acquisto SerieTV");
+    		alert2.setContentText("Acquisto SerieTV Aggiunto Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
     }
     
     @FXML

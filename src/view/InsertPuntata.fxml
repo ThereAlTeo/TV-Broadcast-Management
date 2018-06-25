@@ -6,20 +6,28 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <Label layoutX="18.0" layoutY="24.0" text="ID Puntata" />
-      <Label layoutX="38.0" layoutY="57.0" text="Nome" />
-      <Label layoutX="266.0" layoutY="57.0" text="Tipologia" />
-      <TextField fx:id="textFieldIDProgramma" layoutX="99.0" layoutY="20.0" />
-      <TextField fx:id="textFieldNome" layoutX="99.0" layoutY="53.0" />
-      <TextField fx:id="textFieldTipologia" layoutX="324.0" layoutY="53.0" />
+      <Label layoutX="13.0" layoutY="57.0" text="oraInizioReg" />
+      <Label layoutX="254.0" layoutY="57.0" text="oraFineReg" />
+      <TextField fx:id="idpun" layoutX="84.0" layoutY="20.0" />
+      <TextField fx:id="orainizioreg" layoutX="84.0" layoutY="53.0" prefHeight="25.0" prefWidth="110.0" />
+      <TextField fx:id="orafinereg" layoutX="324.0" layoutY="53.0" prefHeight="25.0" prefWidth="85.0" />
       <ButtonBar layoutX="208.0" layoutY="124.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" text="Inserisci " />
-            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" text="Modifica" />
-            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" prefHeight="25.0" text="Cancella" />
+            <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" onAction="#buttonInserisciPuntata" text="Inserisci " />
+            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" onAction="#modificapuntata" text="Modifica" />
+            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" onAction="#cancellapuntata" prefHeight="25.0" text="Cancella" />
          </buttons>
       </ButtonBar>
+      <TextField fx:id="idprog" layoutX="324.0" layoutY="20.0" />
+      <Label layoutX="245.0" layoutY="24.0" text="ID Programma" />
+      <Label layoutX="29.0" layoutY="89.0" text="durata" />
+      <TextField fx:id="durata" layoutX="84.0" layoutY="85.0" prefHeight="25.0" prefWidth="60.0" />
+      <TextField fx:id="s1" layoutX="349.0" layoutY="85.0" prefHeight="25.0" prefWidth="35.0" />
+      <TextField fx:id="s2" layoutX="392.0" layoutY="85.0" prefHeight="25.0" prefWidth="35.0" />
+      <TextField fx:id="s3" layoutX="438.0" layoutY="85.0" prefHeight="25.0" prefWidth="35.0" />
+      <Label layoutX="308.0" layoutY="89.0" text="share" />
    </children>
 </AnchorPane>
