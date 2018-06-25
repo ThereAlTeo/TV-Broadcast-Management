@@ -7,13 +7,14 @@ import utility.DBConnect;
 
 public class Query {
 	
-	public static ResultSet InsertChannel(Iterator<String> date) {
-		String value = "INSERT INTO `canale`(`idCanale`, `CFAmministratore`, `nome`, `numeroCanale`,"
+	public static boolean InsertChannel(Iterator<String> date) {
+		String value = "INSERT INTO `canale`(`idCanale`, `CFAmministratore`, `nome`, `numeroCanale`, "
 				+ " `dataCreazione`, `acquistato_da`, `acquistato_prezzo`, `frequenza`) "
-				+ "VALUES (" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next()
-				+ ", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ " VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\", " + date.next()
+				+ " , \"" + date.next() + "\", \"" + date.next() + "\", " + date.next() + ", " + date.next() + ")";
+		System.out.println(value);
 
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteChannel(Iterator<String> date) {

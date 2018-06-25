@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -9,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <Label layoutX="12.0" layoutY="29.0" prefHeight="20.0" prefWidth="29.0" text="ID" />
       <TextField fx:id="textFieldID" layoutX="28.0" layoutY="26.0" />
@@ -24,12 +23,14 @@
       <TextField fx:id="textFieldAcquistatoDa" layoutX="50.0" layoutY="131.0" prefHeight="25.0" prefWidth="173.0" />
       <Label layoutX="246.0" layoutY="135.0" text="Pagato" />
       <TextField fx:id="textFieldAcquistatoPrezzo" layoutX="291.0" layoutY="131.0" prefHeight="25.0" prefWidth="92.0" />
-      <Label layoutX="14.0" layoutY="183.0" text="Frequenza" />
-      <ComboBox fx:id="comboBoxFrequenza" layoutX="74.0" layoutY="179.0" prefWidth="150.0" />
+      <Label layoutX="14.0" layoutY="183.0" text="Nome canale" />
       <Separator layoutX="9.0" layoutY="168.0" prefHeight="3.0" prefWidth="430.0" />
       <Separator layoutX="7.0" layoutY="100.0" orientation="VERTICAL" prefHeight="68.0" prefWidth="0.0" />
       <Separator layoutX="437.0" layoutY="100.0" orientation="VERTICAL" prefHeight="68.0" prefWidth="0.0" />
       <Separator layoutX="8.0" layoutY="100.0" prefHeight="3.0" prefWidth="430.0" />
-      <Button fx:id="buttonInserisciCanale" layoutX="379.0" layoutY="222.0" mnemonicParsing="false" text="Inserisci" />
+      <Button layoutX="379.0" layoutY="222.0" mnemonicParsing="false" onAction="#buttonInserisciCanale" text="Inserisci" />
+      <TextField fx:id="TextFieldFrequenza" layoutX="346.0" layoutY="179.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label layoutX="284.0" layoutY="183.0" text="Frequenza" />
+      <TextField fx:id="textFieldnomecanale" layoutX="93.0" layoutY="179.0" />
    </children>
 </AnchorPane>
