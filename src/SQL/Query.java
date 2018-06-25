@@ -224,13 +224,12 @@ public class Query {
 		return new DBConnect().getResultOf(value);
 	}
 
-	public static ResultSet getPalinsesto(Iterator<String> date) {
+	public static ResultSet getPalinsesto(String date) {
 		String value = "SELECT c.nome, pr.nome, t.idPuntata, t.oraTrasmissione "
-				+ "FROM palinsesto pa, canale c, trasmissione t, programma pr"
-				+ "WHERE pa.dataTrasmissione = " + date.next() 
-				+ "AND c.idCanale=pa.idCanale"
-				+ "AND t.dataTrasmissione=pa.dataTrasmissione"
-				+ "AND t.idProgramma=pr.idProgramma";
+				+ " FROM palinsesto pa, canale c, trasmissione t, programma pr"
+				+ " WHERE pa.dataTrasmissione =\" " + date + "\"  AND c.idCanale=pa.idCanale"
+				+ " AND t.dataTrasmissione=pa.dataTrasmissione"
+				+ " AND t.idProgramma=pr.idProgramma";
 		
 		return new DBConnect().getResultOf(value);
 	}

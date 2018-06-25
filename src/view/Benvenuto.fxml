@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <SplitPane dividerPositions="0.40257879656160456" layoutX="213.0" layoutY="141.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -70,17 +70,17 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="300.0" text="- Visualizzazione" textFill="#1b6cd7">
+                        <Label layoutX="14.0" layoutY="300.0" text="- Modifica" textFill="#1b6cd7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="327.0" text="- Modifica" textFill="#1b6cd7">
+                        <Label layoutX="14.0" layoutY="327.0" text="- Cancellazione" textFill="#1b6cd7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="112.0" layoutY="434.0" mnemonicParsing="false" onAction="#showMenuPrincipale" onMouseClicked="#exitCalculator" prefHeight="39.0" prefWidth="190.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Procedere con il Programma" textFill="WHITE">
+                        <Button layoutX="112.0" layoutY="434.0" mnemonicParsing="false" onAction="#showMenuPrincipale" prefHeight="39.0" prefWidth="190.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="Procedere con il Programma" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -90,6 +90,11 @@
                               <Image url="@../../res/UniBoLogo.png" />
                            </image>
                         </ImageView>
+                        <Label layoutX="14.0" layoutY="354.0" text="- Visualizzazione" textFill="#1b6cd7">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                </children>

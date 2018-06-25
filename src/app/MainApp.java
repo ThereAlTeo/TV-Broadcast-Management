@@ -21,7 +21,8 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Emittente TV");
 
         initRootLayout();
-        showBenvenuto();
+
+        showPersonOverview();
     }
 
     /**
@@ -43,7 +44,10 @@ public class MainApp extends Application {
         }
     }
 
-    public static void showBenvenuto() {
+    /**
+     * Shows the person overview inside the root layout.
+     */
+    public static void showPersonOverview() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -111,6 +115,8 @@ public class MainApp extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
     }
     
     public static void showInsertProgramma() {
@@ -201,7 +207,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/AcquistoFilm.fxml").toURI().toURL());
+            loader.setLocation(new File("src/view/InsertAcquistoFilm.fxml").toURI().toURL());
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -215,7 +221,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/AcquistoSerieTV.fxml").toURI().toURL());
+            loader.setLocation(new File("src/view/InsertAcquistoSerieTV.fxml").toURI().toURL());
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -323,6 +329,7 @@ public class MainApp extends Application {
         }
     }
     
+
     /**
      * Returns the main stage.
      * @return
