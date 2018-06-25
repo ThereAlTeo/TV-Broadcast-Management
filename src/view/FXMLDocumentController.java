@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import com.mysql.cj.result.LocalTimeValueFactory;
+
 import SQL.Query;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -116,9 +119,13 @@ public class FXMLDocumentController implements Initializable {
     	 * Palinsesto ha un costruttore al quale può essere passato anche il quarto parametro.
     	 * */
     	while(ris.next()) {
-    		data.add(new RecordPalinsesto(ris.getNString("c.nome"), 
-    									  ris.getString("pr.nome"), 
-    									  ris.getInt("t.idPuntata")));
+    		data.add(new RecordPalinsesto(ris.getString("nome"), 
+    									  ris.getString("nomeProgramma"), 
+    									  ris.getInt("idPuntata"),
+    									  new LocalTimeValueFactory().createFromTime(ris.getTime("oraTrasmissione").getHours(),
+    											  ris.getTime("oraTrasmissione").getMinutes(),
+    											  ris.getTime("oraTrasmissione").getSeconds(),
+    											  0)));
     	}
     	
     	tableView.setItems(data);

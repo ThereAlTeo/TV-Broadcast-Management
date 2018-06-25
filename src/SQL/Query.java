@@ -225,7 +225,7 @@ public class Query {
 	}
 
 	public static ResultSet getPalinsesto(String date) {
-		String value = "SELECT c.nome, pr.nome, t.idPuntata, t.oraTrasmissione "
+		String value = "SELECT c.nome AS nome, pr.nome AS nomeProgramma, t.idPuntata AS idPuntata, t.oraTrasmissione AS oraTrasmissione "
 				+ " FROM palinsesto pa, canale c, trasmissione t, programma pr"
 				+ " WHERE pa.dataTrasmissione =\" " + date + "\"  AND c.idCanale=pa.idCanale"
 				+ " AND t.dataTrasmissione=pa.dataTrasmissione"
