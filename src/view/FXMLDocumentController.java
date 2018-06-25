@@ -15,10 +15,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
+import javafx.scene.control.TextField;
 import app.MainApp;
 import model.RecordPalinsesto;
 
@@ -140,7 +143,50 @@ public class FXMLDocumentController implements Initializable {
     public void showPuntata() {
     	MainApp.showPuntata();
     }
+
+    @FXML
+    private TextField textFieldPuntataConduttore;
+    @FXML
+    private Label labelOptionalConduttore;
+    @FXML
+    private Label labelRegistrazione;
+    @FXML
+    private Label labelDurata;
+    @FXML
+    private LineChart<String, Float> lineChartShares;
     
+    private ObservableList<String> shares = FXCollections.observableArrayList();
+
+    @FXML
+    private void showPuntataConduttore() throws SQLException {
+    	String value = textFieldPuntataConduttore.getText();
+    	int vingola = value.indexOf(",");
+    	shares.addAll(Arrays.asList("Share1", "Share2", "Share3"));
+    	XYChart.Series<String, Float> series = new XYChart.Series<>();
+    	
+    	ResultSet ris = Query.getPuntataConduttore(Arrays.asList(value.substring(0, vingola), 
+    															 value.substring(vingola))
+    													 .iterator());
+    	
+    	if(ris.getString("nome").length() == 0 || ris.getString("cognome").length() == 0) {
+    		labelOptionalConduttore.setText("ASSENTE");
+    	}
+    	else {
+    		labelOptionalConduttore.setText(ris.getString("cognome") + ris.getString("nome"));
+    	}
+    	
+    	/*labelRegistrazione.setText(ris.getString(3));
+    	// OPPURE    	labelRegistrazione.setText(ris.getDate(3).toString());
+    	
+    	labelDurata.setText(ris.getString(4));
+    	
+    	/*for(int i = 5; i < 8; i++) {
+    		series.getData().add(new XYChart.Data<>(shares.get(i-5), ris.getFloat(i)));
+    	}
+    	
+    	lineChartShares.getData().add(series);*/
+    }
+     
     @FXML
     public void showCanali() {
     	MainApp.showCanali();

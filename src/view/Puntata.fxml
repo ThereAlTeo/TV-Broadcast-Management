@@ -34,9 +34,9 @@
                         <Label text="Conduttore" />
                         <Label fx:id="labelOptionalConduttore" GridPane.columnIndex="1" />
                         <Label text="Data registrazione" GridPane.rowIndex="1" />
-                        <Label fx:id="textFieldRegistrazione" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelRegistrazione" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Durata" GridPane.rowIndex="2" />
-                        <Label fx:id="textFieldDurata" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="labelDurata" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -47,7 +47,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <LineChart layoutX="14.0" layoutY="14.0" prefHeight="351.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <LineChart fx:id="lineChartShares" layoutX="14.0" layoutY="14.0" prefHeight="351.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -68,7 +68,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <TextField layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="164.0" AnchorPane.leftAnchor="10.0" />
-      <Button layoutX="175.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" styleClass="background" stylesheets="@Theme.css" />
+      <TextField fx:id="textFieldPuntataConduttore" layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="164.0" AnchorPane.leftAnchor="10.0" />
+      <Button layoutX="175.0" layoutY="49.0" mnemonicParsing="false" onAction="#showPuntataConduttore" prefHeight="25.0" prefWidth="30.0" styleClass="background" stylesheets="@Theme.css" />
    </children>
 </AnchorPane>
