@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -14,22 +14,15 @@ public class RecordPalinsesto {
 	private final StringProperty nameChannel;
     private final StringProperty nameProgramm;
     private final IntegerProperty NrPuntata;
-    private final ObjectProperty<LocalDateTime> oraTrasmissione;
+    private final ObjectProperty<LocalTime> oraTrasmissione;
     
-    public RecordPalinsesto(String nameChannel, String nameProgramm, Integer NrPuntata, LocalDateTime oraTrasmissione) {
+    public RecordPalinsesto(String nameChannel, String nameProgramm, Integer NrPuntata, LocalTime oraTrasmissione) {
 		this.nameChannel = new SimpleStringProperty(nameChannel);
 		this.nameProgramm = new SimpleStringProperty(nameProgramm);
 		this.NrPuntata = new SimpleIntegerProperty(NrPuntata);
-		this.oraTrasmissione = new SimpleObjectProperty<LocalDateTime>(oraTrasmissione);
+		this.oraTrasmissione = new SimpleObjectProperty<LocalTime>(oraTrasmissione);
 	}
 
-    public RecordPalinsesto(String nameChannel, String nameProgramm, Integer NrPuntata) {
-		this.nameChannel = new SimpleStringProperty(nameChannel);
-		this.nameProgramm = new SimpleStringProperty(nameProgramm);
-		this.NrPuntata = new SimpleIntegerProperty(NrPuntata);
-		this.oraTrasmissione = new SimpleObjectProperty<LocalDateTime>(LocalDateTime.of(1999, 2, 21, 15, 10));
-	}
-    
     public String getNameChannel() {
     	return this.nameChannel.get();
     }
@@ -66,15 +59,15 @@ public class RecordPalinsesto {
 		return NrPuntata;
 	}
 
-	public LocalDateTime getOraTrasmissione() {
+	public LocalTime getOraTrasmissione() {
 		return this.oraTrasmissione.get();
 	}
 	
-	public void setOraTrasmissione(LocalDateTime oraTrasmissione) {
+	public void setOraTrasmissione(LocalTime oraTrasmissione) {
 		this.oraTrasmissione.set(oraTrasmissione);
 	}
 	
-	public ObjectProperty<LocalDateTime> oraTrasmissioneProperty() {
+	public ObjectProperty<LocalTime> oraTrasmissioneProperty() {
 		return oraTrasmissione;
 	}
 	
