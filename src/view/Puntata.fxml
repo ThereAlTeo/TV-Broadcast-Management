@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <SplitPane dividerPositions="0.2994652406417112" layoutX="252.0" layoutY="202.0" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -33,8 +33,8 @@
                      <children>
                         <Label text="Conduttore" />
                         <Label fx:id="labelOptionalConduttore" GridPane.columnIndex="1" />
-                        <Label text="Data registrazione" GridPane.rowIndex="1" />
-                        <Label fx:id="labelRegistrazione" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Data Trasmissione" GridPane.rowIndex="1" />
+                        <Label fx:id="labelTrasmissione" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Durata" GridPane.rowIndex="2" />
                         <Label fx:id="labelDurata" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
@@ -59,7 +59,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button layoutX="464.0" layoutY="82.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
+                              <Button layoutX="429.0" layoutY="82.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
                            </children>
                         </AnchorPane>
                     </items>

@@ -7,13 +7,14 @@ import utility.DBConnect;
 
 public class Query {
 	
-	public static ResultSet InsertChannel(Iterator<String> date) {
-		String value = "INSERT INTO `canale`(`idCanale`, `CFAmministratore`, `nome`, `numeroCanale`,"
+	public static boolean InsertChannel(Iterator<String> date) {
+		String value = "INSERT INTO `canale`(`idCanale`, `CFAmministratore`, `nome`, `numeroCanale`, "
 				+ " `dataCreazione`, `acquistato_da`, `acquistato_prezzo`, `frequenza`) "
-				+ "VALUES (" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next()
-				+ ", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ " VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\", " + date.next()
+				+ " , \"" + date.next() + "\", \"" + date.next() + "\", " + date.next() + ", " + date.next() + ")";
+		System.out.println(value);
 
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteChannel(Iterator<String> date) {
@@ -21,22 +22,12 @@ public class Query {
 
 		return new DBConnect().getResultOf(value);
 	}
-
-	public static ResultSet ModifyChannel(Iterator<String> date) {
-		String value = "UPDATE `canale` SET `idCanale`="+ date.next() 
-				+ ", `CFAmministratore`="+ date.next() +", `nome`="+ date.next() +", `numeroCanale`="+ date.next() +","
-				+ " `dataCreazione`="+ date.next() +", `acquistato_da`="+ date.next() +", `acquistato_prezzo`=," + date.next()
-				+ " `frequenza`=" + date.next() +
-				"WHERE " + date.next() + "";
-
-		return new DBConnect().getResultOf(value);
-	}
 	
-	public static ResultSet InsertProgramme(Iterator<String> date) {
+	public static boolean InsertProgramme(Iterator<String> date) {
 		String value = "INSERT INTO `programma`(`idProgramma`, `nome`, `tipologia`) "
-				+ "VALUES (" + date.next() + "," + date.next() + "," + date.next() + ")";
+				+ "VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteProgramme(Iterator<String> date) {
@@ -46,19 +37,19 @@ public class Query {
 	}
 	
 	public static ResultSet ModifyProgramme(Iterator<String> date) {
-		String value = "UPDATE `programma` SET `idProgramma`=" + date.next() + ", `nome`=" + date.next() 
-		+ ",`tipologia`=" + date.next() + " WHERE " + date.next() + "";
+		String value = "UPDATE `programma` SET `idProgramma`=" + date.next() + ", `nome`=\"" + date.next() 
+		+ "\",`tipologia`=\"" + date.next() + "\" WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertEpisode(Iterator<String> date) {
+	public static boolean InsertEpisode(Iterator<String> date) {
 		String value = "INSERT INTO `puntata`(`idPuntata`, `idProgramma`, `oraInizioRegistrazione`,"
 				+ " `oraFineRegistrazione`, `durata`, `share1`, `share2`, `share3`) "
-				+ "VALUES (" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next()
-				+ ", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
-		
-		return new DBConnect().getResultOf(value);
+				+ "VALUES (" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
+				+ "\", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+		System.out.println(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteEpisode(Iterator<String> date) {
@@ -69,50 +60,50 @@ public class Query {
 	
 	public static ResultSet ModifyEpisode(Iterator<String> date) {
 		String value = "UPDATE `puntata` SET `idPuntata`=" + date.next() + ", `idProgramma`=" + date.next() + ","
-				+ " `oraInizioRegistrazione`=" + date.next() + ", `oraFineRegistrazione`=" + date.next() + ","
+				+ " `oraInizioRegistrazione`=\"" + date.next() + "\", `oraFineRegistrazione`=\"" + date.next() + "\","
 				+ "`durata`=" + date.next() + ", `share1`=" + date.next() + ", `share2`=" + date.next() + ","
 				+ " `share3`=" + date.next() + " WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertPersona(Iterator<String> date) {
+	public static boolean InsertPersona(Iterator<String> date) {
 		String value = "INSERT INTO `persona`(`CodiceFiscale`, `nome`, `cognome`, `sesso`,"
 				+ " `dataDiNascita`, `indirizzo_via`, `indirizzo_civico`, `città`) VALUES"
-				+ " (" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ","
-				+ date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ " (\"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\",\""
+				+ date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeletePersona(Iterator<String> date) {
-		String value = "DELETE FROM `persona` WHERE `CodiceFiscale`="+ date.next() + "";
+		String value = "DELETE FROM `persona` WHERE `CodiceFiscale`=\""+ date.next() + "\"";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
 	public static ResultSet ModifyPersona(Iterator<String> date) {
-		String value = "UPDATE `persona` SET `CodiceFiscale`="+ date.next() + ", `nome`="+ date.next() + ","
-				+ " `cognome`="+ date.next() + ", `sesso`="+ date.next() + ", `dataDiNascita`="+ date.next() + ","
-				+ " `indirizzo_via`="+ date.next() + ", `indirizzo_civico`="+ date.next() + ","
-				+ " `città`="+ date.next() + " WHERE "+ date.next() + "";
+		String value = "UPDATE `persona` SET `CodiceFiscale`=\""+ date.next() + "\", `nome`=\""+ date.next() + "\","
+				+ " `cognome`=\""+ date.next() + "\", `sesso`="+ date.next() + ", `dataDiNascita`=\""+ date.next() + "\","
+				+ " `indirizzo_via`=\""+ date.next() + "\", `indirizzo_civico`="+ date.next() + ","
+				+ " `città`=\""+ date.next() + "\" WHERE "+ date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertIncarico(Iterator<String> date) {
+	public static boolean InsertIncarico(Iterator<String> date) {
 		String value = "INSERT INTO `incarico`(`idPuntata`, `idProgramma`, `CodiceFiscale`,"
-				+ " `stipendio`, `idRuolo`) VALUES ("+ date.next() + ", "+ date.next() + ", "+ date.next()
-				+ ", "+ date.next() + ", "+ date.next() + ")";
+				+ " `stipendio`, `idRuolo`) VALUES ("+ date.next() + ", "+ date.next() + ", \""+ date.next()
+				+ "\", "+ date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteIncarico(Iterator<String> date) {
 		String value = "DELETE FROM `incarico` "
 				+ "WHERE `idPuntata`=" + date.next() + " "
 				+ "AND `idProgramma`=" + date.next() + " "
-				+ "AND `CodiceFiscale`=" + date.next() + "";
+				+ "AND `CodiceFiscale`=\"" + date.next() + "\"";
 		
 		return new DBConnect().getResultOf(value);
 	}
@@ -120,7 +111,7 @@ public class Query {
 	public static ResultSet ModifyIncarico(Iterator<String> date) {
 		String value = "UPDATE `incarico` SET `idPuntata`=" + date.next() + ", "
 				+ "`idProgramma`=" + date.next() + ", "
-				+ "`CodiceFiscale`=" + date.next() + ", "
+				+ "`CodiceFiscale`=\"" + date.next() + "\", "
 				+ "`stipendio`=" + date.next() + ", "
 				+ "`idRuolo`=" + date.next() + " "
 				+ "WHERE " + date.next() + "";
@@ -128,14 +119,14 @@ public class Query {
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertFilm(Iterator<String> date) {
+	public static boolean InsertFilm(Iterator<String> date) {
 		String value = "INSERT INTO `film`(`idFilm`, `idCasaCinematografica`,"
 				+ " `nome`, `dataCreazione`, `dataPubblicazione`,"
 				+ " `durata`, `lingua`) VALUES "
-				+ "(" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next()
-				+ ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ "(" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
+				+ "\", \"" + date.next() + "\", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteFilm(Iterator<String> date) {
@@ -146,21 +137,21 @@ public class Query {
 	
 	public static ResultSet ModifyFilm(Iterator<String> date) {
 		String value = "UPDATE `film` SET `idFilm`=" + date.next() + ", `idCasaCinematografica`=" + date.next() + ","
-				+ " `nome`=" + date.next() + ", `dataCreazione`=" + date.next() + ","
-				+ " `dataPubblicazione`=" + date.next() + ", `durata`=" + date.next() + ","
-				+ "`lingua`=" + date.next() + " WHERE " + date.next() + "";
+				+ " `nome`=\"" + date.next() + "\", `dataCreazione`=\"" + date.next() + "\","
+				+ " `dataPubblicazione`=\"" + date.next() + "\", `durata`=" + date.next() + ","
+				+ "`lingua`=\"" + date.next() + "\" WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertSerieTv(Iterator<String> date) {
+	public static boolean InsertSerieTv(Iterator<String> date) {
 		String value = "INSERT INTO `serie_tv`(`idSerieTV`, `idCasaCinematografica`,"
 				+ " `nome`, `tipologia`, `stagioni`, `episodi`,"
 				+ " `durata`, `lingua`) VALUES "
-				+ "(" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next()
-				+ ", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ "(" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
+				+ "\", " + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteSerieTv(Iterator<String> date) {
@@ -171,19 +162,19 @@ public class Query {
 	
 	public static ResultSet ModifySerieTv(Iterator<String> date) {
 		String value = "UPDATE `serie_tv` SET `idSerieTV`=" + date.next() + ", `idCasaCinematografica`=" + date.next() + ","
-				+ " `nome`=" + date.next() + ", `tipologia`=" + date.next() + ", `stagioni`=" + date.next() + ","
-				+ " `episodi`=" + date.next() + ", `durata`=" + date.next() + ", `lingua`=" + date.next() + ""
+				+ " `nome`=\"" + date.next() + "\", `tipologia`=\"" + date.next() + "\", `stagioni`=" + date.next() + ","
+				+ " `episodi`=" + date.next() + ", `durata`=" + date.next() + ", `lingua`=\"" + date.next() + "\""
 				+ " WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertAcqFilm(Iterator<String> date) {
+	public static boolean InsertAcqFilm(Iterator<String> date) {
 		String value = "INSERT INTO `acquisizioni_film`(`idFilm`, "
 				+ "`idCanale`, `prezzo`, `dataAcquisto`) VALUES "
-				+ "(" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ "(" + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteAcqFilm(Iterator<String> date) {
@@ -195,18 +186,18 @@ public class Query {
 	
 	public static ResultSet ModifyAcqFilm(Iterator<String> date) {
 		String value = "UPDATE `acquisizioni_film` SET `idFilm`=" + date.next() + ","
-				+ " `idCanale`=" + date.next() + ", `prezzo`=" + date.next() + ", `dataAcquisto`=" + date.next() + ""
+				+ " `idCanale`=" + date.next() + ", `prezzo`=" + date.next() + ", `dataAcquisto`=\"" + date.next() + "\""
 				+ " WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet InsertAcqSerieTv(Iterator<String> date) {
+	public static boolean InsertAcqSerieTv(Iterator<String> date) {
 		String value = "INSERT INTO `acquisizioni_serie_tv`(`idSerieTV`,"
 				+ " `idCanale`, `prezzo`, `dataAcquisto`) VALUES"
-				+ " (" + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
+				+ " (" + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultOf(value);
+		return new DBConnect().getResultInsert(value);
 	}
 	
 	public static ResultSet DeleteAcqSerieTv(Iterator<String> date) {
@@ -218,7 +209,7 @@ public class Query {
 	
 	public static ResultSet ModifyAcqSerieTv(Iterator<String> date) {
 		String value = "UPDATE `acquisizioni_serie_tv` SET `idSerieTV`=" + date.next() + ","
-				+ " `idCanale`=" + date.next() + ", `prezzo`=" + date.next() + ", `dataAcquisto`=" + date.next() + ""
+				+ " `idCanale`=" + date.next() + ", `prezzo`=" + date.next() + ", `dataAcquisto`=\"" + date.next() + "\""
 				+ " WHERE " + date.next() + "";
 		
 		return new DBConnect().getResultOf(value);
@@ -235,18 +226,12 @@ public class Query {
 	}
 	
 	public static ResultSet getPuntataConduttore(Iterator<String> date) {
-		String value = "SELECT p.nome AS nome, p.cognome AS cognome, t.dataTrasmissione AS Trasmissione, " +
-				"pu.durata AS durata, pu.share1 AS Share1, pu.share2 AS Share2, pu.share3 AS Share3" + 
-				"FROM incarico i, persona p, ruolo r, puntata pu, trasmissione t " + 
-				"WHERE i.idPuntata=" + date.next() + " " + 
-				"AND i.idProgramma=" + date.next() + " " + 
-				"AND i.CodiceFiscale=p.CodiceFiscale" + 
-				"AND i.idPuntata=pu.idPuntata" + 
-				"AND i.idProgramma=pu.idProgramma" + 
-				"AND pu.idPuntata=t.idPuntata" + 
-				"AND pu.idProgramma=t.idProgramma" + 
-				"AND i.idRuolo=r.idRuolo" + 
-				"AND r.tipologia=\"Conduttore\"" + "";
+		String value = "SELECT p.nome AS Nome, p.cognome AS Cognome, pu.durata AS Durata, pu.share1 AS Share1, pu.share2 AS Share2, pu.share3 AS Share3, t.dataTrasmissione AS Trasmissione " + 
+				"FROM incarico i INNER JOIN persona p ON i.CodiceFiscale = p.CodiceFiscale " + 
+				"INNER JOIN ruolo r ON i.idRUolo = r.idRuolo " + 
+				"INNER JOIN puntata pu ON pu.idPuntata = i.idPuntata AND pu.idProgramma = i.idProgramma " + 
+				"INNER JOIN trasmissione t ON t.idPuntata = pu.idPuntata AND t.idProgramma = pu.idProgramma " + 
+				"WHERE i.idPuntata=" + date.next() +" AND i.idProgramma=" + date.next()+" AND r.tipologia = \"Conduttore\"";
 		
 		return new DBConnect().getResultOf(value);
 	}
@@ -296,7 +281,7 @@ public class Query {
 	public static ResultSet getPuntateInCuiPersonaHaRuolo(Iterator<String> date) {
 		String value = "SELECT p.nome, p.cognome, p.dataDiNascita, p.indirizzo_via, i.idProgramma, i.idPuntata, t.dataTrasmissione, r.tipologia" + 
 				"	FROM persona p, incarico i, ruolo r, puntata pu, trasmissione t" + 
-				"	WHERE p.CodiceFiscale=" + date.next() + "" + 
+				"	WHERE p.CodiceFiscale=\"" + date.next() + "\"" + 
 				"	AND i.CodiceFiscale=p.CodiceFiscale" + 
 				"	AND r.idRuolo=i.idRuolo" + 
 				"	AND i.idPuntata=t.idPuntata" + 

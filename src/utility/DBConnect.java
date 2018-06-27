@@ -10,6 +10,7 @@ public class DBConnect {
 	private Connection con;
 	private Statement st;
 	private ResultSet rs;
+	private boolean ins;
 
 	public DBConnect() {
 		try {
@@ -30,6 +31,16 @@ public class DBConnect {
 		}
 		
 		return rs;
+	}
+	
+	public boolean getResultInsert(String value) {
+		try {
+			ins = st.execute(value);
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return ins;
 	}
 	
 	/*public void getData() {
