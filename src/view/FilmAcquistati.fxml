@@ -10,18 +10,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
-      <Label layoutX="154.0" layoutY="26.0" text="Ricerca per Canale" AnchorPane.topAnchor="26.0" />
+      <Label layoutX="150.0" layoutY="26.0" text="Ricerca per Canale" AnchorPane.topAnchor="26.0" />
       <Separator layoutX="20.0" layoutY="59.0" prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <TableView layoutX="101.0" layoutY="71.0" prefHeight="301.0" prefWidth="399.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
+      <TableView fx:id="tableViewFIlm" layoutX="101.0" layoutY="71.0" prefHeight="301.0" prefWidth="399.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
          <columns>
-            <TableColumn prefWidth="90.0" text="Nome Film" />
-            <TableColumn prefWidth="122.0" text="Casa Discografica" />
-            <TableColumn prefWidth="123.0" text="Data Pubblicazione" />
-            <TableColumn prefWidth="64.0" text="Nr. Cast" />
+            <TableColumn fx:id="nomeFilmColumn" prefWidth="121.0" text="Nome Film" />
+            <TableColumn fx:id="casaDiscograficaColumn" prefWidth="133.0" text="Casa Discografica" />
+            <TableColumn fx:id="durataColumn" prefWidth="81.0" text="Durata" />
+            <TableColumn fx:id="castColumn" prefWidth="64.0" text="Nr. Cast" />
          </columns>
       </TableView>
       <Button fx:id="buttonBack" layoutX="545.0" layoutY="422.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
       <Button layoutX="401.0" layoutY="22.0" mnemonicParsing="false" onAction="#invioRicercaFilmAcquistati" prefHeight="25.0" prefWidth="41.0" styleClass="background" stylesheets="@Theme.css" text="Invia" />
-      <TextField layoutX="252.0" layoutY="22.0" />
+      <TextField fx:id="textFieldFilmAcquistati" layoutX="252.0" layoutY="22.0" />
    </children>
 </AnchorPane>

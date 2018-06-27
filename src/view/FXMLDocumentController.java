@@ -6,11 +6,7 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.stream.IntStream;
-
-import javax.swing.JOptionPane;
 
 import com.mysql.cj.result.LocalTimeValueFactory;
 
@@ -20,22 +16,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import app.MainApp;
+import model.RecordCanale;
+import model.RecordFilmAcquistati;
 import model.RecordPalinsesto;
+import model.RecordSerieTVAcquistate;
 
 public class FXMLDocumentController implements Initializable {
  
@@ -949,13 +946,44 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    public void showCanali() {
+    public void showCanali() throws SQLException {
     	MainApp.showCanali();
     }
     
     @FXML
-    public void invioRicercaFilmAcquistati() {
+    private TableView<RecordCanale> tableViewCanali;
+    @FXML
+    private TableColumn<RecordCanale, String> channelColumn;
+    @FXML
+    private TableColumn<RecordCanale, String> CFAmministratoreColumn;
+    @FXML
+    private TableColumn<RecordCanale, String> NrCanaleColumn;
+    @FXML
+    private TableColumn<RecordCanale, String> dataCreazioneColumn;
+    @FXML
+    private TableColumn<RecordCanale, String> frequenzaColumn;
+    
+    private ObservableList<RecordCanale> dataCanale = FXCollections.observableArrayList();
+    
+    @FXML
+    private void visualizzaCanali(ActionEvent event) throws SQLException {
+    	ResultSet ris = Query.getCanale();
     	
+    	while(ris.next()) {
+    		dataCanale.add(new RecordCanale(ris.getString("nome"), 
+    										ris.getString("CFAmministratore"), 
+    										ris.getInt("numeroCanale"),
+    										ris.getDate("dataCreazione"),
+    										ris.getFloat("frequenza")));
+    	}
+    	
+    	tableViewCanali.setItems(dataCanale);
+    	
+    	channelColumn.setCellValueFactory(value -> value.getValue().nameChannelProperty());
+    	CFAmministratoreColumn.setCellValueFactory(value -> value.getValue().CFAmministratoreProperty());
+    	NrCanaleColumn.setCellValueFactory(value -> value.getValue().nameChannelProperty());
+    	dataCreazioneColumn.setCellValueFactory(value -> value.getValue().DataCreazioneProperty());
+    	frequenzaColumn.setCellValueFactory(value -> value.getValue().FrequenzaProperty().asString());
     }
     
     @FXML
@@ -964,8 +992,83 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    private TextField textFieldFilmAcquistati;
+    @FXML
+    private TableView<RecordFilmAcquistati> tableViewFIlm;
+    @FXML
+    private TableColumn<RecordFilmAcquistati, String> nomeFilmColumn;
+    @FXML
+    private TableColumn<RecordFilmAcquistati, String> casaDiscograficaColumn;
+    @FXML
+    private TableColumn<RecordFilmAcquistati, String> durataColumn;
+    @FXML
+    private TableColumn<RecordFilmAcquistati, String> castColumn;
+    
+    private ObservableList<RecordFilmAcquistati> dataFilmAcquistati = FXCollections.observableArrayList();
+    
+    @FXML
+    private void invioRicercaFilmAcquistati(ActionEvent event) throws SQLException {
+    	ResultSet ris = Query.getFilmAcquistati(Arrays.asList(textFieldFilmAcquistati.getText()).iterator());
+    	
+    	while(ris.next()) {
+    		dataFilmAcquistati.add(new RecordFilmAcquistati(ris.getString("NomeFILM"), 
+    										ris.getString("NomeCasaCinematografica"), 
+    										ris.getInt("Durata"), ris.getInt("Cast")));
+    	}
+    	
+    	tableViewFIlm.setItems(dataFilmAcquistati);
+    	
+    	nomeFilmColumn.setCellValueFactory(value -> value.getValue().nameFilmProperty());
+    	casaDiscograficaColumn.setCellValueFactory(value -> value.getValue().nameCasaDiscograficaProperty());
+    	durataColumn.setCellValueFactory(value -> value.getValue().durataProperty().asString());
+    	castColumn.setCellValueFactory(value -> value.getValue().NrCastProperty().asString());
+    }
+    
+    @FXML
     public void showSerieTVAcquistate() {
     	MainApp.showSerieTVAcquistate();
+    }
+    
+    @FXML
+    private TextField textFieldSerieAcquistate;
+    @FXML
+    private TableView<RecordSerieTVAcquistate> tableViewSerieTV;
+    @FXML
+    private TableColumn<RecordSerieTVAcquistate, String> nomeSerieColumn;
+    @FXML
+    private TableColumn<RecordSerieTVAcquistate, String> nomeCasaCinematograficaColumn;
+    @FXML
+    private TableColumn<RecordSerieTVAcquistate, String> stagioniColumn;
+    @FXML
+    private TableColumn<RecordSerieTVAcquistate, String> episodiColumn;
+    @FXML
+    private TableColumn<RecordSerieTVAcquistate, String> castSerieColumn;
+    
+    private ObservableList<RecordSerieTVAcquistate> dataSerieAcquistati = FXCollections.observableArrayList();
+    
+    
+    /**
+     * TODO: occorre pulire la TableView prima di ricaricare altri dati.
+     * */
+    @FXML
+    private void invioRicercaSerieTVAcquistati(ActionEvent event) throws SQLException {
+    	ResultSet ris = Query.getSerieTvAcquistate(Arrays.asList(textFieldSerieAcquistate.getText()).iterator());
+    	
+    	while(ris.next()) {
+    		dataSerieAcquistati.add(new RecordSerieTVAcquistate(ris.getString("NomeSerieTV"), 
+    														 ris.getString("NomeCasaCinematografica"), 
+    														 ris.getInt("Stagioni"), 
+    														 ris.getInt("Episodi"),
+    														 ris.getInt("NrCast")));
+    	}
+    
+    	tableViewSerieTV.setItems(dataSerieAcquistati);
+    	
+    	nomeSerieColumn.setCellValueFactory(value -> value.getValue().nameSerieProperty());
+    	nomeCasaCinematograficaColumn.setCellValueFactory(value -> value.getValue().nameCasaDiscograficaProperty());
+    	stagioniColumn.setCellValueFactory(value -> value.getValue().stagioniProperty().asString());
+    	episodiColumn.setCellValueFactory(value -> value.getValue().episodiProperty().asString());
+    	castSerieColumn.setCellValueFactory(value -> value.getValue().NrCastProperty().asString());
     }
     
     @FXML

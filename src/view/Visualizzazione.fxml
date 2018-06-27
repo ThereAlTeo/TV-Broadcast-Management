@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
       <SplitPane layoutX="213.0" layoutY="141.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -40,7 +40,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="129.0" layoutY="212.0" mnemonicParsing="false" onAction="#showInsertAcquistoSerieTV" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="SERIE TV ACQUISTATE" textFill="#1b6cd7">
+                        <Button layoutX="129.0" layoutY="212.0" mnemonicParsing="false" onAction="#showSerieTVAcquistate" prefHeight="100.0" prefWidth="211.0" style="-fx-border-radius: 5em; -fx-border-color: #1b6cd7; -fx-background-color: #FFFFFF; -fx-border-width: 3;" text="SERIE TV ACQUISTATE" textFill="#1b6cd7">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -50,7 +50,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="358.0" layoutY="212.0" mnemonicParsing="false" onAction="#showInsertAcquistoFilm" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="FILM ACQUISTATI" textFill="WHITE">
+                        <Button layoutX="358.0" layoutY="212.0" mnemonicParsing="false" onAction="#showFilmAcquistati" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #1b6cd7; -fx-background-radius: 5em;" text="FILM ACQUISTATI" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>

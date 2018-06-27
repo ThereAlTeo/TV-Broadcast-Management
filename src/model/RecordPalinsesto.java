@@ -26,21 +26,13 @@ public class RecordPalinsesto {
     public String getNameChannel() {
     	return this.nameChannel.get();
     }
-    
-    public void setNameChannel(String nameChannel) {
-    	this.nameChannel.set(nameChannel);
-    }
-    
+  
 	public StringProperty nameChannelProperty() {
 		return nameChannel;
 	}
 
 	public String getNameProgramm() {
 		return this.nameProgramm.get();
-	}
-	
-	public void setNameProgramm(String nameProgramm) {
-		this.nameProgramm.set(nameProgramm);
 	}
 	
 	public StringProperty nameProgrammProperty() {
@@ -51,20 +43,12 @@ public class RecordPalinsesto {
 		return this.NrPuntata.get();
 	}
 	
-	public void setNrPuntata(Integer NrPuntata) {
-		this.NrPuntata.set(NrPuntata);
-	}
-	
 	public IntegerProperty NrPuntataProperty() {
 		return NrPuntata;
 	}
 
 	public LocalTime getOraTrasmissione() {
 		return this.oraTrasmissione.get();
-	}
-	
-	public void setOraTrasmissione(LocalTime oraTrasmissione) {
-		this.oraTrasmissione.set(oraTrasmissione);
 	}
 	
 	public ObjectProperty<LocalTime> oraTrasmissioneProperty() {

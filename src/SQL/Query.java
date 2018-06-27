@@ -258,34 +258,32 @@ public class Query {
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet getCanale(Iterator<String> date) {
-		String value = "SELECT nome, CFAmministratore, numeroCanale, dataCreazione, frequenza" + 
-				"	FROM canale";
+	public static ResultSet getCanale() {
+		String value = "SELECT nome, CFAmministratore, numeroCanale, dataCreazione, frequenza " + 
+				"FROM canale " +
+				"ORDER BY numeroCanale";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
 	public static ResultSet getFilmAcquistati(Iterator<String> date) {
-		String value = "SELECT f.nome, cc.nome, f.durata, COUNT(cf.CodiceFiscale)" + 
-				"	FROM canale c, acquisizioni_film af, film f, casa_cinematografica cc, cast_film cf" + 
-				"	WHERE c.idCanale=" + date.next() + "" + 
-				"	AND af.idCanale=c.idCanale" + 
-				"	AND af.idFilm=f.idFilm" + 
-				"	AND f.idCasaCinematografica=cc.idCasaCinematografica" + 
-				"	AND f.idFilm=cf.idFilm" + 
-				"	FROM canale";
+		String value = "SELECT f.nome AS NomeFILM, cc.nome AS NomeCasaCinematografica, f.durata AS Durata, COUNT(cf.CodiceFiscale) AS Cast " + 
+				"	FROM canale c, acquisizioni_film af, film f, casa_cinematografica cc, cast_film cf " + 
+				"	WHERE c.idCanale=" + date.next() + " AND af.idCanale=c.idCanale AND af.idFilm=f.idFilm " + 
+				"	AND f.idCasaCinematografica=cc.idCasaCinematografica AND f.idFilm=cf.idFilm " +
+				"   GROUP BY NomeFILM, NomeCasaCinematografica, Durata";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
 	public static ResultSet getSerieTvAcquistate(Iterator<String> date) {
-		String value = "SELECT st.nome, cc.nome, st.stagioni, st.episodi, COUNT(cst.CodiceFiscale)" + 
-				"	FROM canale c, acquisizioni_serie_tv ast, serie_tv st, casa_cinematografica cc, cast_serie_tv cst" + 
-				"	WHERE c.idCanale=" + date.next() + "" + 
-				"	AND ast.idCanale=c.idCanale" + 
-				"	AND ast.idSerieTv=st.idSerieTv" + 
-				"	AND st.idCasaCinematografica=cc.idCasaCinematografica" + 
-				"	AND st.idSerieTV=cst.idSerieTV";
+		String value = "SELECT st.nome AS NomeSerieTV, cc.nome AS NomeCasaCinematografica, st.stagioni AS Stagioni, " +
+				"   st.episodi AS Episodi, COUNT(cst.CodiceFiscale) AS NrCast" + 
+				"	FROM canale c, acquisizioni_serie_tv ast, serie_tv st, casa_cinematografica cc, cast_serie_tv cst " + 
+				"	WHERE c.idCanale=" + date.next() + " AND ast.idCanale=c.idCanale " + 
+				"	AND ast.idSerieTv=st.idSerieTv AND st.idCasaCinematografica=cc.idCasaCinematografica " + 
+				"	AND st.idSerieTV=cst.idSerieTV " +
+				"   GROUP BY NomeSerieTV, NomeCasaCinematografica, Stagioni, Episodi";
 		
 		return new DBConnect().getResultOf(value);
 	}
