@@ -18,8 +18,8 @@
       <ButtonBar layoutX="163.0" layoutY="151.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
             <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" onAction="#buttonInserisciAcquistoFilm" text="Inserisci " />
-            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" text="Modifica" />
-            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" prefHeight="25.0" text="Cancella" />
+            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" onAction="#modificaacquistofilm" text="Modifica" />
+            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" onAction="#cancellaacquistofilm" prefHeight="25.0" text="Cancella" />
          </buttons>
       </ButtonBar>
       <TextField fx:id="film" layoutX="60.0" layoutY="10.0" />
