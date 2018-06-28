@@ -582,8 +582,8 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    TextField idf, cd2, nom, dc, li;
-    DatePicker dp, du;
+    TextField idf, cd2, nom, du, li;
+    DatePicker dp, dc;
     
     @FXML
     private void buttonInserisciFilm(ActionEvent event) throws SQLException {
