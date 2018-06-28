@@ -1,26 +1,25 @@
 package model;
 
-import java.time.LocalTime;
+import java.sql.Time;
 
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import utility.Parse;
 
 public class RecordPalinsesto {
 	
 	private final StringProperty nameChannel;
     private final StringProperty nameProgramm;
     private final IntegerProperty NrPuntata;
-    private final ObjectProperty<LocalTime> oraTrasmissione;
+    private final StringProperty oraTrasmissione;
     
-    public RecordPalinsesto(String nameChannel, String nameProgramm, Integer NrPuntata, LocalTime oraTrasmissione) {
+    public RecordPalinsesto(String nameChannel, String nameProgramm, Integer NrPuntata, Time oraTrasmissione) {
 		this.nameChannel = new SimpleStringProperty(nameChannel);
 		this.nameProgramm = new SimpleStringProperty(nameProgramm);
 		this.NrPuntata = new SimpleIntegerProperty(NrPuntata);
-		this.oraTrasmissione = new SimpleObjectProperty<LocalTime>(oraTrasmissione);
+		this.oraTrasmissione = new SimpleStringProperty(Parse.getTime(oraTrasmissione));
 	}
 
     public String getNameChannel() {
@@ -47,11 +46,11 @@ public class RecordPalinsesto {
 		return NrPuntata;
 	}
 
-	public LocalTime getOraTrasmissione() {
+	public String getOraTrasmissione() {
 		return this.oraTrasmissione.get();
 	}
 	
-	public ObjectProperty<LocalTime> oraTrasmissioneProperty() {
+	public StringProperty oraTrasmissioneProperty() {
 		return oraTrasmissione;
 	}
 	
@@ -60,7 +59,6 @@ public class RecordPalinsesto {
 		return "Nome Canale: " + this.getNameChannel() + "\n" +
 			   "Nome Programma: " + this.getNameProgramm() + "\n" +
 			   "Numero Puntata: " + this.getNrPuntata() + "\n" +
-			   "Ora Trasmissione: " + this.getOraTrasmissione().getHour() + ":" + 
-			   this.getOraTrasmissione().getMinute() +"\n\n";
+			   "Ora Trasmissione: " + this.getOraTrasmissione() + "\n\n";
 	}
 }

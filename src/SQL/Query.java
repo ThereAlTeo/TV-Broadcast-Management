@@ -12,8 +12,7 @@ public class Query {
 				+ " `dataCreazione`, `acquistato_da`, `acquistato_prezzo`, `frequenza`) "
 				+ " VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\", " + date.next()
 				+ " , \"" + date.next() + "\", \"" + date.next() + "\", " + date.next() + ", " + date.next() + ")";
-		System.out.println(value);
-
+		
 		return new DBConnect().getResultInsert(value);
 	}
 	
@@ -289,24 +288,28 @@ public class Query {
 		return new DBConnect().getResultOf(value);
 	}
 	
-	public static ResultSet getProgrammiStudioDiRegistrazione(Iterator<String> date) {
-		String value = "SELECT p.nome, p.tipologia, sdr.nomeStudio" + 
-				"	FROM programma p, registrazione r, studio_di_registrazione sdr" + 
-				"	WHERE p.idProgramma=r.idProgramma" + 
-				"	AND r.nomeStudio=sdr.nomeStudio" + 
-				"	AND r.città=sdr.città";
+	public static ResultSet getProgrammiStudioDiRegistrazione() {
+		String value = "SELECT p.nome AS NomePrograma, p.tipologia AS Tipologia, sdr.nomeStudio AS NomeStudio, sdr.città AS Citta " + 
+				"FROM programma p INNER JOIN registrazione r ON p.idProgramma=r.idProgramma " + 
+				"INNER JOIN studio_di_registrazione sdr ON r.nomeStudio=sdr.nomeStudio AND r.città=sdr.città";
+		
+		return new DBConnect().getResultOf(value);
+	}
+	
+	public static ResultSet getSelectPersona(Iterator<String> date) {
+		String value = "SELECT nome As Nome, cognome As Cognome, dataDiNascita AS DataDiNasciata, " +
+				"indirizzo_via AS Via, indirizzo_civico AS Civico " +
+				"FROM persona WHERE CodiceFiscale = \"" +date.next()+ "\"";
 		
 		return new DBConnect().getResultOf(value);
 	}
 	
 	public static ResultSet getPuntateInCuiPersonaHaRuolo(Iterator<String> date) {
-		String value = "SELECT p.nome, p.cognome, p.dataDiNascita, p.indirizzo_via, i.idProgramma, i.idPuntata, t.dataTrasmissione, r.tipologia" + 
-				"	FROM persona p, incarico i, ruolo r, puntata pu, trasmissione t" + 
-				"	WHERE p.CodiceFiscale=\"" + date.next() + "\"" + 
-				"	AND i.CodiceFiscale=p.CodiceFiscale" + 
-				"	AND r.idRuolo=i.idRuolo" + 
-				"	AND i.idPuntata=t.idPuntata" + 
-				"	AND i.idProgramma=t.idProgramma";
+		String value = "SELECT pr.nome AS NomeProgramma, i.idPuntata AS NumPuntata, i.stipendio AS Stipendio, r.tipologia AS Tipologia " + 
+				"FROM persona p INNER JOIN incarico i ON p.CodiceFiscale=i.CodiceFiscale " + 
+				"INNER JOIN puntata pu ON i.idPuntata=pu.idPuntata AND i.idProgramma=pu.idProgramma " + 
+				"INNER JOIN ruolo r ON r.idRuolo=i.idRuolo INNER JOIN programma pr ON pr.idProgramma=pu.idProgramma " + 
+				"WHERE p.CodiceFiscale = \"" + date.next() + "\"";
 		
 		return new DBConnect().getResultOf(value);
 	}

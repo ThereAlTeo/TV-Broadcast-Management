@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLDocumentController">
    <children>
-      <TableView layoutX="68.0" layoutY="60.0" prefHeight="200.0" prefWidth="461.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="60.0">
+      <TableView fx:id="tableViewProgrammi" layoutX="67.0" layoutY="106.0" prefHeight="276.0" prefWidth="466.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="106.0">
          <columns>
-            <TableColumn prefWidth="171.0" text="Nome" />
-            <TableColumn prefWidth="114.0" text="Tipologia" />
-            <TableColumn prefWidth="180.0" text="Studio di Registrazione" />
+            <TableColumn fx:id="nomeProgrammaColumn" prefWidth="174.0" text="Nome" />
+            <TableColumn fx:id="tipologiaColumn" prefWidth="91.0" text="Tipologia" />
+            <TableColumn fx:id="studioRegistrazioneColumn" prefWidth="200.0" text="Studio di Registrazione" />
          </columns>
       </TableView>
       <Label layoutX="193.0" layoutY="25.0" text="Elenco Programmi" AnchorPane.topAnchor="25.0">
@@ -21,6 +21,7 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="545.0" layoutY="311.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
+      <Button layoutX="545.0" layoutY="411.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
+      <Button layoutX="235.0" layoutY="67.0" mnemonicParsing="false" onAction="#ricercaProgrammi" text="Visualizza Programmi" AnchorPane.topAnchor="67.0" />
    </children>
 </AnchorPane>

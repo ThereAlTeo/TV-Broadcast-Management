@@ -21,8 +21,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Emittente TV");
 
         initRootLayout();
-
-        showPersonOverview();
+        showBenvenuto();
     }
 
     /**
@@ -45,299 +44,100 @@ public class MainApp extends Application {
     }
 
     /**
-     * Shows the person overview inside the root layout.
+     * Shows Welcome inside the root layout.
      */
-    public static void showPersonOverview() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Benvenuto.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void showBenvenuto() {
+    	templatePane("src/view/Benvenuto.fxml");
     }
     
     public static void showMenuPrincipale() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/MenuPrincipale.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/MenuPrincipale.fxml");
     }
     
     public static void showManipolazioneContenuto() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/ManipolazioneContenuto.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/ManipolazioneContenuto.fxml");
     }
     
     public static void showVisualizzazione() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Visualizzazione.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/Visualizzazione.fxml");
     }
     
     public static void showInsertChannel() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertChannel.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        
+        templatePane("src/view/InsertChannel.fxml");       
     }
     
     public static void showInsertProgramma() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertProgramma.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertProgramma.fxml");
     }
     
     public static void showInsertPuntata() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertPuntata.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertPuntata.fxml");
     }
     
     public static void showInsertPersona() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertPersona.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertPersona.fxml");
     }
     
     public static void showInsertIncarico() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertIncarico.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertIncarico.fxml");
     }
     
     public static void showInsertSerieTV() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertSerieTV.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertSerieTV.fxml");
     }
     
     public static void showInsertFilm() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertFilm.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/InsertFilm.fxml");
     }
     
     public static void showInsertAcquistoFilm() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertAcquistoFilm.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       templatePane("src/view/InsertAcquistoFilm.fxml");    	
     }
     
     public static void showInsertAcquistoSerieTV() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/InsertAcquistoSerieTV.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       templatePane("src/view/InsertAcquistoSerieTV.fxml");
     }
     
     public static void showPalinsesto() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Palinsesto.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/Palinsesto.fxml");
     }
     
     public static void showPuntata() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Puntata.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/Puntata.fxml");
     }
     
     public static void showCanali() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Canali.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/Canali.fxml");    	
     }
     
     public static void showFilmAcquistati() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/FilmAcquistati.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/FilmAcquistati.fxml");
     }
     
     public static void showSerieTVAcquistate() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/SerieTVAcquistate.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/SerieTVAcquistate.fxml");    	
     }
     
     public static void showPartecipazionePersona() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/PartecipazionePersona.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        templatePane("src/view/PartecipazionePersona.fxml");
     }
     
     public static void showProgrammi() {
-        try {
-            // Load person overview.
+        templatePane("src/view/Programmi.fxml");    	
+    }
+    
+    private static void templatePane(String path) {
+    	try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(new File("src/view/Programmi.fxml").toURI().toURL());
-            AnchorPane personOverview = (AnchorPane) loader.load();
+            loader.setLocation(new File(path).toURI().toURL());
+            AnchorPane newPane = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
+            rootLayout.setCenter(newPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-
-    /**
-     * Returns the main stage.
-     * @return
-     */
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
-
 	public static void main(String[] args) {
 		launch(args);
 	}

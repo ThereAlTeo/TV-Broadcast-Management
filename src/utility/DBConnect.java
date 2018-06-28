@@ -42,19 +42,4 @@ public class DBConnect {
 		
 		return ins;
 	}
-	
-	/*public void getData() {
-		try {
-			String query = "select * from film";
-			rs = st.executeQuery(query);
-			System.out.println("Records from database");
-			while (rs.next()) {
-				String idfilm = rs.getString("idFilm");
-				System.out.println("ID: "+idfilm);
-			}
-			
-		} catch (Exception ex) {
-			System.out.println(ex);
-		}
-	}*/
 }

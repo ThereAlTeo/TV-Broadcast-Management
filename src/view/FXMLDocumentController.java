@@ -6,9 +6,8 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
-
-import com.mysql.cj.result.LocalTimeValueFactory;
 
 import SQL.Query;
 import javafx.collections.FXCollections;
@@ -21,9 +20,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,7 +29,10 @@ import app.MainApp;
 import model.RecordCanale;
 import model.RecordFilmAcquistati;
 import model.RecordPalinsesto;
+import model.RecordPersonaRuolo;
+import model.RecordProgrammi;
 import model.RecordSerieTVAcquistate;
+import utility.Parse;
 
 public class FXMLDocumentController implements Initializable {
  
@@ -588,7 +588,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void buttonInserisciFilm(ActionEvent event) throws SQLException {
     	
-    	ArrayList<String> date = new ArrayList<String>();
+    	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
@@ -612,13 +612,13 @@ public class FXMLDocumentController implements Initializable {
     		alert3.setTitle("ERROR");
     		alert3.setContentText("Uno o più Campi sono Errati!");
     		alert3.showAndWait();
-    	}
+    	}*/
     }
     
     @FXML
     private void modificafilm(ActionEvent event) throws SQLException {
     	
-    	ArrayList<String> date = new ArrayList<String>();
+    	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
@@ -642,13 +642,13 @@ public class FXMLDocumentController implements Initializable {
     		alert3.setTitle("ERROR");
     		alert3.setContentText("Uno o più Campi sono Errati!");
     		alert3.showAndWait();
-    	}
+    	}*/
     }
     
     @FXML
     private void cancellafilm(ActionEvent event) throws SQLException {
     	
-    	ArrayList<String> date = new ArrayList<String>();
+    	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
@@ -672,7 +672,7 @@ public class FXMLDocumentController implements Initializable {
     		alert3.setTitle("ERROR");
     		alert3.setContentText("Uno o più Campi sono Errati!");
     		alert3.showAndWait();
-    	}
+    	}*/
     }
     
     @FXML
@@ -877,25 +877,19 @@ public class FXMLDocumentController implements Initializable {
     	ResultSet ris = Query.getPalinsesto(DataPalinsesto.getValue()
     													  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     	
-    	/**
-    	 * TODO: Inserire ora!
-    	 * Palinsesto ha un costruttore al quale può essere passato anche il quarto parametro.
-    	 * */
+    	data.clear();
     	while(ris.next()) {
     		data.add(new RecordPalinsesto(ris.getString("nome"), 
     									  ris.getString("nomeProgramma"), 
     									  ris.getInt("idPuntata"),
-    									  new LocalTimeValueFactory().createFromTime(ris.getTime("oraTrasmissione").getHours(),
-    											  ris.getTime("oraTrasmissione").getMinutes(),
-    											  ris.getTime("oraTrasmissione").getSeconds(),
-    											  0)));
+    									  ris.getTime("oraTrasmissione")));
     	}
     	
     	tableView.setItems(data);
     	canaleColumn.setCellValueFactory(value -> value.getValue().nameChannelProperty());
     	programmaColumn.setCellValueFactory(value -> value.getValue().nameProgrammProperty());
     	puntataColumn.setCellValueFactory(value -> value.getValue().NrPuntataProperty().asString());
-    	oraTrasmissioneColumn.setCellValueFactory(value -> value.getValue().oraTrasmissioneProperty().asString());
+    	oraTrasmissioneColumn.setCellValueFactory(value -> value.getValue().oraTrasmissioneProperty());
     }
     
     @FXML
@@ -921,7 +915,7 @@ public class FXMLDocumentController implements Initializable {
     	String value = textFieldPuntataConduttore.getText();
     	int vingola = value.indexOf(",");
     	
-    	if(this.validationTextPuntataConduttore(vingola)) {
+    	if(Parse.validationTextPuntataConduttore(value, vingola)) {
     		XYChart.Series<String, Float> series = new XYChart.Series<>();
         	series.setName("Valori dello Share");
         	
@@ -956,17 +950,6 @@ public class FXMLDocumentController implements Initializable {
     		alert.showAndWait();
     	}
     }
-     
-    private boolean validationTextPuntataConduttore(int index) {
-    	try {
-			Integer.parseInt(textFieldPuntataConduttore.getText().substring(0, index));
-			Integer.parseInt(textFieldPuntataConduttore.getText().substring(index+1));
-		} catch (Exception e) {
-			return false;
-		}
-    	
-    	return true;
-    }
     
     @FXML
     public void showCanali() throws SQLException {
@@ -992,6 +975,7 @@ public class FXMLDocumentController implements Initializable {
     private void visualizzaCanali(ActionEvent event) throws SQLException {
     	ResultSet ris = Query.getCanale();
     	
+    	dataCanale.clear();
     	while(ris.next()) {
     		dataCanale.add(new RecordCanale(ris.getString("nome"), 
     										ris.getString("CFAmministratore"), 
@@ -1033,6 +1017,7 @@ public class FXMLDocumentController implements Initializable {
     private void invioRicercaFilmAcquistati(ActionEvent event) throws SQLException {
     	ResultSet ris = Query.getFilmAcquistati(Arrays.asList(textFieldFilmAcquistati.getText()).iterator());
     	
+    	dataFilmAcquistati.clear();
     	while(ris.next()) {
     		dataFilmAcquistati.add(new RecordFilmAcquistati(ris.getString("NomeFILM"), 
     										ris.getString("NomeCasaCinematografica"), 
@@ -1076,6 +1061,7 @@ public class FXMLDocumentController implements Initializable {
     private void invioRicercaSerieTVAcquistati(ActionEvent event) throws SQLException {
     	ResultSet ris = Query.getSerieTvAcquistate(Arrays.asList(textFieldSerieAcquistate.getText()).iterator());
     	
+    	dataSerieAcquistati.clear();
     	while(ris.next()) {
     		dataSerieAcquistati.add(new RecordSerieTVAcquistate(ris.getString("NomeSerieTV"), 
     														 ris.getString("NomeCasaCinematografica"), 
@@ -1099,10 +1085,104 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    private TextField textFieldPersonaRuolo;
+    @FXML
+    private Label labelNomePersona;
+    @FXML
+    private Label labelCognomePersona;
+    @FXML
+    private Label labelNascitaPersona;
+    @FXML
+    private Label labelViaPersona;
+    @FXML
+    private TableView<RecordPersonaRuolo> tableViewPersonaRuolo;
+    @FXML
+    private TableColumn<RecordPersonaRuolo, String> programmaRuoloColumn;
+    @FXML
+    private TableColumn<RecordPersonaRuolo, String> nrPuntataColumn;
+    @FXML
+    private TableColumn<RecordPersonaRuolo, String> stipendioColumn;
+    @FXML
+    private TableColumn<RecordPersonaRuolo, String> ruoloColumn;
+    
+    private ObservableList<RecordPersonaRuolo> dataPersonaRuolo = FXCollections.observableArrayList();
+    
+    @FXML
+    private void ricercaPersonaRuolo(ActionEvent event) throws SQLException{
+    	List<String> date = Arrays.asList(textFieldPersonaRuolo.getText());
+    	ResultSet risAnagrafica = Query.getSelectPersona(date.iterator());
+    	ResultSet risTable = Query.getPuntateInCuiPersonaHaRuolo(date.iterator());
+    	
+    	if(risAnagrafica.next()) {
+    		labelNomePersona.setText(risAnagrafica.getString("Nome"));
+    		labelCognomePersona.setText(risAnagrafica.getString("Cognome"));
+    		labelNascitaPersona.setText(Parse.getDate(risAnagrafica.getString("DataDiNasciata")));
+    		labelViaPersona.setText(risAnagrafica.getString("Via") + ", " + risAnagrafica.getString("Civico"));
+    	}else
+    	{
+    		/**
+    		 * TODO: Insert Allert
+    		 * */
+    	}
+    	
+    	if(risTable.next()) {
+    		dataPersonaRuolo.clear(); 
+    		do {
+    			dataPersonaRuolo.add(new RecordPersonaRuolo(risTable.getString("NomeProgramma"),
+    														risTable.getInt("NumPuntata"),
+    														risTable.getFloat("Stipendio"),
+    														risTable.getString("Tipologia")));
+    			
+    			
+    		}while(risTable.next());
+    		
+    		tableViewPersonaRuolo.setItems(dataPersonaRuolo);
+    		
+    		programmaRuoloColumn.setCellValueFactory(value -> value.getValue().nameProgrammaProperty());
+    		nrPuntataColumn.setCellValueFactory(value -> value.getValue().NrPuntataProperty().asString());
+    		stipendioColumn.setCellValueFactory(value -> value.getValue().stipendioProperty().asString());
+    		ruoloColumn.setCellValueFactory(value -> value.getValue().ruoloProperty());
+    	}else {
+    		/**
+    		 * TODO: Insert Allert
+    		 * */
+    	}
+    }
+    
+    @FXML
     public void showProgrammi() {
     	MainApp.showProgrammi();
     }
- 
+    
+    @FXML
+    private TableView<RecordProgrammi>tableViewProgrammi;
+    @FXML
+    private TableColumn<RecordProgrammi, String> nomeProgrammaColumn;
+    @FXML
+    private TableColumn<RecordProgrammi, String> tipologiaColumn;
+    @FXML
+    private TableColumn<RecordProgrammi, String> studioRegistrazioneColumn;
+    
+    private ObservableList<RecordProgrammi> dataProgrammi = FXCollections.observableArrayList();
+    
+    @FXML
+    private void ricercaProgrammi(ActionEvent event) throws SQLException{
+    	ResultSet ris = Query.getProgrammiStudioDiRegistrazione();
+
+    	dataProgrammi.clear();
+    	while(ris.next()) {
+    		dataProgrammi.add(new RecordProgrammi(ris.getString("NomePrograma"),
+    											  ris.getString("Tipologia"),
+    											  ris.getString("NomeStudio") + ", " + ris.getString("Citta")));
+    	}
+    	
+    	tableViewProgrammi.setItems(dataProgrammi);
+    	
+    	nomeProgrammaColumn.setCellValueFactory(value -> value.getValue().nameProgrammaProperty());
+    	tipologiaColumn.setCellValueFactory(value -> value.getValue().tipologiaProperty());
+    	studioRegistrazioneColumn.setCellValueFactory(value -> value.getValue().studioRegistrazioneProperty());
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
  
