@@ -183,6 +183,29 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
+    private void cancellaprogramma(ActionEvent event) throws SQLException {
+    	ArrayList<String> date = new ArrayList<String>();
+    	date.add(textFieldIDProgramma.getText().toString());
+    	date.add(textFieldNome.getText().toString());
+    	date.add(textFieldTipologia.getText().toString());
+    	//System.out.println(date.iterator().next());
+    	boolean ris = Query.DeleteProgramme(date.iterator());
+    	//System.out.println(date);
+    	if (!ris) {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("Cancellazione Programma");
+    		alert2.setContentText("Programma Cancellato Correttamente!");
+    		alert2.showAndWait();
+    		MainApp.showVisualizzazione();
+    	} else {
+    		Alert alert3 = new Alert(AlertType.INFORMATION);
+    		alert3.setTitle("ERROR");
+    		alert3.setContentText("Uno o più Campi sono Errati!");
+    		alert3.showAndWait();
+    	}
+    }
+    
+    @FXML
     public void showInsertPuntata() {
     	MainApp.showInsertPuntata();
     }
@@ -559,8 +582,8 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    TextField idf, cd2, nom, dc, li;
-    DatePicker dp, du;
+    TextField idf, cd2, nom, du, li;
+    DatePicker dp, dc;
     
     @FXML
     private void buttonInserisciFilm(ActionEvent event) throws SQLException {
