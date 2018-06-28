@@ -32,14 +32,10 @@ import model.RecordPalinsesto;
 import model.RecordPersonaRuolo;
 import model.RecordProgrammi;
 import model.RecordSerieTVAcquistate;
+import utility.AlertFactory;
 import utility.Parse;
 
 public class FXMLDocumentController implements Initializable {
- 
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
- 
-    }
  
     @FXML
     public void showMenuPrincipale(){
@@ -82,20 +78,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldAcquistatoDa.getText().toString());
     	date.add(textFieldAcquistatoPrezzo.getText().toString());
     	date.add(TextFieldFrequenza.getText().toString());
-    	//System.out.println(date.iterator().next());
+
     	boolean ris = Query.InsertChannel(date.iterator());
-    	//System.out.println(date);
+
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunta Canale");
-    		alert2.setContentText("Canale Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunta Canale", "Canale Aggiunto Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -111,20 +102,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldAcquistatoDa.getText().toString());
     	date.add(textFieldAcquistatoPrezzo.getText().toString());
     	date.add(TextFieldFrequenza.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteChannel(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Canale Rimosso");
-    		alert2.setContentText("Canale Rimosso Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Canale Rimosso", "Canale Rimosso Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -142,20 +128,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldIDProgramma.getText().toString());
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertProgramme(date.iterator());
-    	//System.out.println(date);
+
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunto Programma");
-    		alert2.setContentText("Programma Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunto Programma", "Programma Aggiunto Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -165,20 +146,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldIDProgramma.getText().toString());
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
-    	//System.out.println(date.iterator().next());
+
     	boolean ris = Query.ModifyProgramme(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificato Programma");
-    		alert2.setContentText("Programma Modificato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificato Programma", "Programma Modificato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -188,20 +164,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldIDProgramma.getText().toString());
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteProgramme(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellazione Programma");
-    		alert2.setContentText("Programma Cancellato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellazione Programma", "Programma Cancellato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -225,20 +196,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s1.getText().toString());
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertEpisode(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunta Puntata");
-    		alert2.setContentText("Puntata Aggiunta Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunta Puntata", "Puntata Aggiunta Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -254,20 +220,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s1.getText().toString());
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyEpisode(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificata Puntata");
-    		alert2.setContentText("Puntata Modificata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificata Puntata", "Puntata Modificata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -283,20 +244,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s1.getText().toString());
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteEpisode(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellata Puntata");
-    		alert2.setContentText("Puntata Cancellata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellata Puntata", "Puntata Cancellata Correttamente!") 
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -320,20 +276,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertPersona(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunta Persona");
-    		alert2.setContentText("Persona Aggiunta Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunta Persona", "Persona Aggiunta Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -349,20 +300,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyPersona(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificata Persona");
-    		alert2.setContentText("Persona Modificata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificata Persona", "Persona Modificata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -378,20 +324,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
-    	//System.out.println(date.iterator().next());
+
     	boolean ris = Query.DeletePersona(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellazione Persona");
-    		alert2.setContentText("Persona Cancellata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellazione Persona", "Persona Cancellata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -412,20 +353,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(cf2.getText().toString());
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertIncarico(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunto Incarico");
-    		alert2.setContentText("Incarico Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunto Incarico", "Incarico Aggiunto Correttamente!") 
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -438,20 +374,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(cf2.getText().toString());
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyIncarico(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificato Incarico");
-    		alert2.setContentText("Incarico Modificato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificato Incarico", "Incarico Modificato Correttamente!") 
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -464,20 +395,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(cf2.getText().toString());
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteIncarico(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellazione Incarico");
-    		alert2.setContentText("Incarico Cancellato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellazione Incarico", "Incarico Cancellato Correttamente!")
+    					      .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -501,20 +427,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(e.getText().toString());
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertSerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunta SerieTV");
-    		alert2.setContentText("SerieTv Aggiunta Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunta SerieTV", "SerieTv Aggiunta Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -530,20 +451,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(e.getText().toString());
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifySerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modfica SerieTV");
-    		alert2.setContentText("SerieTv Modificata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modfica SerieTV", "SerieTv Modificata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -559,20 +475,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(e.getText().toString());
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteSerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellazione SerieTV");
-    		alert2.setContentText("SerieTv Cancellata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellazione SerieTV", "SerieTv Cancellata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -587,7 +498,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void buttonInserisciFilm(ActionEvent event) throws SQLException {
-    	
     	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
@@ -598,26 +508,20 @@ public class FXMLDocumentController implements Initializable {
     	date.add(du.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunto Film");
-    		alert2.setContentText("Film Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunto Film", "Film Aggiunto Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
     }
     
     @FXML
     private void modificafilm(ActionEvent event) throws SQLException {
-    	
     	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
@@ -628,26 +532,20 @@ public class FXMLDocumentController implements Initializable {
     	date.add(du.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificato Film");
-    		alert2.setContentText("Film Modificato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificato Film", "Film Modificato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
     }
     
     @FXML
     private void cancellafilm(ActionEvent event) throws SQLException {
-    	
     	/*ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
@@ -658,20 +556,15 @@ public class FXMLDocumentController implements Initializable {
     	date.add(du.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellato Film");
-    		alert2.setContentText("Film Cancellato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellato Film", "Film Cancellato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
     }
     
@@ -684,84 +577,63 @@ public class FXMLDocumentController implements Initializable {
     TextField film, canale, prezzo;
     DatePicker da;
     
-    /**
-     * TODO: Trasfomare gli Allert
-     * */
     @FXML
     private void buttonInserisciAcquistoFilm(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(film.getText().toString());
     	date.add(canale.getText().toString());
     	date.add(prezzo.getText().toString());
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertAcqFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunto Acquisto Film");
-    		alert2.setContentText("Acquisto Film Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunto Acquisto Film", "Acquisto Film Aggiunto Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
     @FXML
     private void modificaacquistofilm(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(film.getText().toString());
     	date.add(canale.getText().toString());
     	date.add(prezzo.getText().toString());
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyAcqFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificato Acquisto Film");
-    		alert2.setContentText("Acquisto Film Modificato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificato Acquisto Film", "Acquisto Film Modificato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
     @FXML
     private void cancellaacquistofilm(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(film.getText().toString());
     	date.add(canale.getText().toString());
     	date.add(prezzo.getText().toString());
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyAcqFilm(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancella Acquisto Film");
-    		alert2.setContentText("Acquisto Film Cancellato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancella Acquisto Film", "Acquisto Film Cancellato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -776,79 +648,61 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void buttonInserisciAcquistoSerieTv(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(idserie.getText().toString());
     	date.add(idcan.getText().toString());
     	date.add(prezz.getText().toString());
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.InsertAcqSerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Aggiunto Acquisto SerieTV");
-    		alert2.setContentText("Acquisto SerieTV Aggiunto Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Aggiunto Acquisto SerieTV", "Acquisto SerieTV Aggiunto Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
     @FXML
     private void modificaacquistoserietv(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(idserie.getText().toString());
     	date.add(idcan.getText().toString());
     	date.add(prezz.getText().toString());
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.ModifyAcqSerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Modificato Acquisto SerieTV");
-    		alert2.setContentText("Acquisto SerieTV Modificata Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Modificato Acquisto SerieTV", "Acquisto SerieTV Modificata Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
     @FXML
     private void cancellaacquistoserietv(ActionEvent event) throws SQLException {
-    	
     	ArrayList<String> date = new ArrayList<String>();
     	date.add(idserie.getText().toString());
     	date.add(idcan.getText().toString());
     	date.add(prezz.getText().toString());
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	//System.out.println(date.iterator().next());
+    	
     	boolean ris = Query.DeleteAcqSerieTv(date.iterator());
-    	//System.out.println(date);
+    	
     	if (!ris) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
-    		alert2.setTitle("Cancellato Acquisto SerieTV");
-    		alert2.setContentText("Acquisto SerieTV Cancellato Correttamente!");
-    		alert2.showAndWait();
+    		new AlertFactory().createInformationAllert("Cancellato Acquisto SerieTV", "Acquisto SerieTV Cancellato Correttamente!")
+    						  .showAndWait();
     		MainApp.showVisualizzazione();
     	} else {
-    		Alert alert3 = new Alert(AlertType.INFORMATION);
-    		alert3.setTitle("ERROR");
-    		alert3.setContentText("Uno o più Campi sono Errati!");
-    		alert3.showAndWait();
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
     }
     
@@ -944,10 +798,7 @@ public class FXMLDocumentController implements Initializable {
         	}
     	}
     	else {
-    		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("Inserimento Dati");
-    		alert.setContentText("ERRORE: Il valore inserito non è conforme al formato richiesto!");
-    		alert.showAndWait();
+    		new AlertFactory().createErrorAllert("ERRORE: Il valore inserito non è conforme al formato richiesto!").showAndWait();
     	}
     }
     
@@ -1054,9 +905,6 @@ public class FXMLDocumentController implements Initializable {
     
     private ObservableList<RecordSerieTVAcquistate> dataSerieAcquistati = FXCollections.observableArrayList();
     
-    /**
-     * TODO: occorre pulire la TableView prima di ricaricare altri dati.
-     * */
     @FXML
     private void invioRicercaSerieTVAcquistati(ActionEvent event) throws SQLException {
     	ResultSet ris = Query.getSerieTvAcquistate(Arrays.asList(textFieldSerieAcquistate.getText()).iterator());
@@ -1120,9 +968,7 @@ public class FXMLDocumentController implements Initializable {
     		labelViaPersona.setText(risAnagrafica.getString("Via") + ", " + risAnagrafica.getString("Civico"));
     	}else
     	{
-    		/**
-    		 * TODO: Insert Allert
-    		 * */
+    		new AlertFactory().createInformationAllert("", "Valore non trovato").showAndWait();
     	}
     	
     	if(risTable.next()) {
@@ -1143,9 +989,7 @@ public class FXMLDocumentController implements Initializable {
     		stipendioColumn.setCellValueFactory(value -> value.getValue().stipendioProperty().asString());
     		ruoloColumn.setCellValueFactory(value -> value.getValue().ruoloProperty());
     	}else {
-    		/**
-    		 * TODO: Insert Allert
-    		 * */
+    		new AlertFactory().createInformationAllert("", "Valore non trovato").showAndWait();
     	}
     }
     
