@@ -241,7 +241,8 @@ public class Query {
 		String value = "SELECT c.nome AS nome, pr.nome AS nomeProgramma, t.idPuntata AS idPuntata, t.oraTrasmissione AS oraTrasmissione "
 				+ " FROM palinsesto pa, canale c, trasmissione t, programma pr"
 				+ " WHERE pa.dataTrasmissione =\" " + date + "\"  AND c.idCanale=pa.idCanale"
-				+ " AND t.dataTrasmissione=pa.dataTrasmissione"
+				+ " AND pa.idCanale=t.idCanale"
+				+ " AND pa.dataTrasmissione=t.dataTrasmissione"
 				+ " AND t.idProgramma=pr.idProgramma";
 		
 		return new DBConnect().getResultOf(value);
