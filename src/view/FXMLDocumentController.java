@@ -1046,7 +1046,6 @@ public class FXMLDocumentController implements Initializable {
     
     private ObservableList<RecordSerieTVAcquistate> dataSerieAcquistati = FXCollections.observableArrayList();
     
-    
     /**
      * TODO: occorre pulire la TableView prima di ricaricare altri dati.
      * */
