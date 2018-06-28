@@ -13,7 +13,7 @@ public class Query {
 				+ " VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\", " + date.next()
 				+ " , \"" + date.next() + "\", \"" + date.next() + "\", " + date.next() + ", " + date.next() + ")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyeChannel(Iterator<String> date) {
@@ -23,26 +23,26 @@ public class Query {
 				+ " `acquistato_da`=?, `acquistato_prezzo`=?,"
 				+ " `frequenza`=" + date.next() + "" + " WHERE `idCanale`=" + id + "";
 
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteChannel(Iterator<String> date) {
 		String value = "DELETE FROM `canale` WHERE `idCanale`=" + date.next() + "";
 
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertProgramme(Iterator<String> date) {
 		String value = "INSERT INTO `programma`(`idProgramma`, `nome`, `tipologia`) "
 				+ "VALUES (" + date.next() + ", \"" + date.next() + "\", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteProgramme(Iterator<String> date) {
 		String value = "DELETE FROM `programma` WHERE `idProgramma`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyProgramme(Iterator<String> date) {
@@ -50,7 +50,7 @@ public class Query {
 		String value = "UPDATE `programma` SET `idProgramma`=" + id + ", `nome`=\"" + date.next() 
 		+ "\",`tipologia`=\"" + date.next() + "\" WHERE `idProgramma`=" + id + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertEpisode(Iterator<String> date) {
@@ -59,13 +59,13 @@ public class Query {
 				+ "VALUES (" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
 				+ "\", " + date.next() + ", " + date.next() + ", " + date.next() + ", " + date.next() + ")";
 		System.out.println(value);
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteEpisode(Iterator<String> date) {
 		String value = "DELETE FROM `puntata` WHERE `idPuntata`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyEpisode(Iterator<String> date) {
@@ -76,7 +76,7 @@ public class Query {
 				+ "`durata`=" + date.next() + ", `share1`=" + date.next() + ", `share2`=" + date.next() + ","
 				+ " `share3`=" + date.next() + " WHERE `idPuntata`=" + idPunt + ", `idProgramma`=" + idProg + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertPersona(Iterator<String> date) {
@@ -85,13 +85,13 @@ public class Query {
 				+ " (\"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\",\""
 				+ date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeletePersona(Iterator<String> date) {
 		String value = "DELETE FROM `persona` WHERE `CodiceFiscale`=\""+ date.next() + "\"";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyPersona(Iterator<String> date) {
@@ -101,7 +101,7 @@ public class Query {
 				+ " `indirizzo_via`=\""+ date.next() + "\", `indirizzo_civico`="+ date.next() + ","
 				+ " `città`=\""+ date.next() + "\" WHERE `CodiceFiscale`=\""+ CF + "\"";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertIncarico(Iterator<String> date) {
@@ -109,7 +109,7 @@ public class Query {
 				+ " `stipendio`, `idRuolo`) VALUES ("+ date.next() + ", "+ date.next() + ", \""+ date.next()
 				+ "\", "+ date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteIncarico(Iterator<String> date) {
@@ -118,7 +118,7 @@ public class Query {
 				+ "AND `idProgramma`=" + date.next() + " "
 				+ "AND `CodiceFiscale`=\"" + date.next() + "\"";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyIncarico(Iterator<String> date) {
@@ -131,7 +131,7 @@ public class Query {
 				+ "`idRuolo`=" + date.next() + " "
 				+ "WHERE `idPuntata`=" + idPunt + " `idProgramma`=" + idProg + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertFilm(Iterator<String> date) {
@@ -141,13 +141,13 @@ public class Query {
 				+ "(" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
 				+ "\", \"" + date.next() + "\", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteFilm(Iterator<String> date) {
 		String value = "DELETE FROM `film` WHERE `idFilm`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyFilm(Iterator<String> date) {
@@ -157,7 +157,7 @@ public class Query {
 				+ " `dataPubblicazione`=\"" + date.next() + "\", `durata`=" + date.next() + ","
 				+ "`lingua`=\"" + date.next() + "\" WHERE `idFilm`=" + idFilm + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertSerieTv(Iterator<String> date) {
@@ -167,13 +167,13 @@ public class Query {
 				+ "(" + date.next() + ", " + date.next() + ", \"" + date.next() + "\", \"" + date.next()
 				+ "\", " + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteSerieTv(Iterator<String> date) {
 		String value = "DELETE FROM `serie_tv` WHERE `idSerieTV`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifySerieTv(Iterator<String> date) {
@@ -183,7 +183,7 @@ public class Query {
 				+ " `episodi`=" + date.next() + ", `durata`=" + date.next() + ", `lingua`=\"" + date.next() + "\""
 				+ " WHERE `idSerieTV`=" + idSerieTV + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertAcqFilm(Iterator<String> date) {
@@ -191,14 +191,14 @@ public class Query {
 				+ "`idCanale`, `prezzo`, `dataAcquisto`) VALUES "
 				+ "(" + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteAcqFilm(Iterator<String> date) {
 		String value = "DELETE FROM `acquisizioni_film` WHERE"
 				+ " `idFilm`=" + date.next() + " AND `idCanale`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyAcqFilm(Iterator<String> date) {
@@ -208,7 +208,7 @@ public class Query {
 				+ " `idCanale`=" + idCanale + ", `prezzo`=" + date.next() + ", `dataAcquisto`=\"" + date.next() + "\""
 				+ " WHERE `idFilm`=" + idFilm + ", `idCanale`=" + idCanale + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean InsertAcqSerieTv(Iterator<String> date) {
@@ -216,14 +216,14 @@ public class Query {
 				+ " `idCanale`, `prezzo`, `dataAcquisto`) VALUES"
 				+ " (" + date.next() + ", " + date.next() + ", " + date.next() + ", \"" + date.next() + "\")";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean DeleteAcqSerieTv(Iterator<String> date) {
 		String value = "DELETE FROM `acquisizioni_serie_tv` WHERE `idSerieTV`=" + date.next()
 		+ " AND `idCanale`=" + date.next() + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 	
 	public static boolean ModifyAcqSerieTv(Iterator<String> date) {
@@ -233,7 +233,7 @@ public class Query {
 				+ " `idCanale`=" + idCanale + ", `prezzo`=" + date.next() + ", `dataAcquisto`=\"" + date.next() + "\""
 				+ " WHERE `idSerieTV`=" + idSerieTV + ", `idCanale`=" + idCanale + "";
 		
-		return new DBConnect().getResultInsert(value);
+		return DBConnect.getIstance().getResultInsert(value);
 	}
 
 	public static ResultSet getPalinsesto(String date) {
@@ -244,7 +244,7 @@ public class Query {
 				+ " AND pa.dataTrasmissione=t.dataTrasmissione"
 				+ " AND t.idProgramma=pr.idProgramma";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getPuntataConduttore(Iterator<String> date) {
@@ -255,7 +255,7 @@ public class Query {
 				"INNER JOIN trasmissione t ON t.idPuntata = pu.idPuntata AND t.idProgramma = pu.idProgramma " + 
 				"WHERE i.idPuntata=" + date.next() +" AND i.idProgramma=" + date.next()+" AND r.tipologia = \"Conduttore\"";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getCanale() {
@@ -263,7 +263,7 @@ public class Query {
 				"FROM canale " +
 				"ORDER BY numeroCanale";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getFilmAcquistati(Iterator<String> date) {
@@ -273,7 +273,7 @@ public class Query {
 				"	AND f.idCasaCinematografica=cc.idCasaCinematografica AND f.idFilm=cf.idFilm " +
 				"   GROUP BY NomeFILM, NomeCasaCinematografica, Durata";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getSerieTvAcquistate(Iterator<String> date) {
@@ -285,7 +285,7 @@ public class Query {
 				"	AND st.idSerieTV=cst.idSerieTV " +
 				"   GROUP BY NomeSerieTV, NomeCasaCinematografica, Stagioni, Episodi";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getProgrammiStudioDiRegistrazione() {
@@ -293,7 +293,7 @@ public class Query {
 				"FROM programma p INNER JOIN registrazione r ON p.idProgramma=r.idProgramma " + 
 				"INNER JOIN studio_di_registrazione sdr ON r.nomeStudio=sdr.nomeStudio AND r.città=sdr.città";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getSelectPersona(Iterator<String> date) {
@@ -301,7 +301,7 @@ public class Query {
 				"indirizzo_via AS Via, indirizzo_civico AS Civico " +
 				"FROM persona WHERE CodiceFiscale = \"" +date.next()+ "\"";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 	
 	public static ResultSet getPuntateInCuiPersonaHaRuolo(Iterator<String> date) {
@@ -311,6 +311,6 @@ public class Query {
 				"INNER JOIN ruolo r ON r.idRuolo=i.idRuolo INNER JOIN programma pr ON pr.idProgramma=pu.idProgramma " + 
 				"WHERE p.CodiceFiscale = \"" + date.next() + "\"";
 		
-		return new DBConnect().getResultOf(value);
+		return DBConnect.getIstance().getResultOf(value);
 	}
 }
