@@ -7,26 +7,26 @@ import java.sql.Statement;
 
 public class DBConnect {
 	
-	private static DBConnect SINGLETON;
-	private static Connection connnection;
-	private static Statement state;
+	private static DBConnect SINGLETON = null;
+	private Connection connnection;
+	private Statement state;
 	private ResultSet rs;
 	private boolean ins;
-
+	
 	private DBConnect() {
-		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/emittentetv?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+			state = connnection.createStatement();
+			
+		} catch (Exception ex) {
+			System.out.println("Error " +ex);
+		}
 	}
 	
 	public static DBConnect getIstance() {
 		if(SINGLETON == null) {
-			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				connnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/emittentetv?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-				state = connnection.createStatement();
-				
-			} catch (Exception ex) {
-				System.out.println("Error " +ex);
-			}
+			SINGLETON = new DBConnect();
 		}
 		
 		return SINGLETON;
