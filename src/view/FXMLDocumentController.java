@@ -23,36 +23,40 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import app.MainApp;
-import model.RecordCanale;
-import model.RecordFilmAcquistati;
-import model.RecordPalinsesto;
-import model.RecordPersonaRuolo;
-import model.RecordProgrammi;
-import model.RecordSerieTVAcquistate;
+import controller.Manager;
+import model.*;
 import utility.AlertFactory;
 import utility.Parse;
 
 public class FXMLDocumentController implements Initializable {
  
+	private void checkElementsForm(boolean condition, String header, String contentText) {
+		if (condition) {
+    		new AlertFactory().createInformationAllert(header, contentText).showAndWait();
+    		Manager.showVisualizzazione();
+    	} else {
+    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
+    	}
+	}
+	
     @FXML
     public void showMenuPrincipale(){
-    	MainApp.showMenuPrincipale();
+    	Manager.showMenuPrincipale();
     }
     
     @FXML
     public void showManipolazioneContenuto() {
-    	MainApp.showManipolazioneContenuto();
+    	Manager.showManipolazioneContenuto();
     }
     
     @FXML
     public void showVisualizzazione() {
-    	MainApp.showVisualizzazione();
+    	Manager.showVisualizzazione();
     }
     
     @FXML
     public void showInsertChannel() {
-    	MainApp.showInsertChannel();
+    	Manager.showInsertChannel();
     }
     
     @FXML
@@ -77,15 +81,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldAcquistatoPrezzo.getText().toString());
     	date.add(TextFieldFrequenza.getText().toString());
 
-    	boolean ris = Query.InsertChannel(date.iterator());
-
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunta Canale", "Canale Aggiunto Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertChannel(date.iterator()), "Aggiunta Canale", "Canale Aggiunto Correttamente!");
     }
     
     @FXML
@@ -101,20 +97,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldAcquistatoPrezzo.getText().toString());
     	date.add(TextFieldFrequenza.getText().toString());
     	
-    	boolean ris = Query.DeleteChannel(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Canale Rimosso", "Canale Rimosso Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteChannel(date.iterator()), "Canale Rimosso", "Canale Rimosso Correttamente!");
     }
     
     @FXML
     public void showInsertProgramma() {
-    	MainApp.showInsertProgramma();
+    	Manager.showInsertProgramma();
     }
     
     @FXML
@@ -127,15 +115,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
     	
-    	boolean ris = Query.InsertProgramme(date.iterator());
-
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunto Programma", "Programma Aggiunto Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertProgramme(date.iterator()), "Aggiunto Programma", "Programma Aggiunto Correttamente!");
     }
     
     @FXML
@@ -145,15 +125,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
 
-    	boolean ris = Query.ModifyProgramme(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificato Programma", "Programma Modificato Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyProgramme(date.iterator()), "Modificato Programma", "Programma Modificato Correttamente!");
     }
     
     @FXML
@@ -163,20 +135,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(textFieldNome.getText().toString());
     	date.add(textFieldTipologia.getText().toString());
     	
-    	boolean ris = Query.DeleteProgramme(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellazione Programma", "Programma Cancellato Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteProgramme(date.iterator()), "Cancellazione Programma", "Programma Cancellato Correttamente!");
     }
     
     @FXML
     public void showInsertPuntata() {
-    	MainApp.showInsertPuntata();
+    	Manager.showInsertPuntata();
     }
     
     @FXML
@@ -195,15 +159,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
     	
-    	boolean ris = Query.InsertEpisode(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunta Puntata", "Puntata Aggiunta Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertEpisode(date.iterator()), "Aggiunta Puntata", "Puntata Aggiunta Correttamente!");
     }
     
     @FXML
@@ -219,15 +175,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
     	
-    	boolean ris = Query.ModifyEpisode(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificata Puntata", "Puntata Modificata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyEpisode(date.iterator()), "Modificata Puntata", "Puntata Modificata Correttamente!");
     }
     
     @FXML
@@ -243,20 +191,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s2.getText().toString());
     	date.add(s3.getText().toString());
     	
-    	boolean ris = Query.DeleteEpisode(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellata Puntata", "Puntata Cancellata Correttamente!") 
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteEpisode(date.iterator()), "Cancellata Puntata", "Puntata Cancellata Correttamente!");
     }
     
     @FXML
     public void showInsertPersona() {
-    	MainApp.showInsertPersona();
+    	Manager.showInsertPersona();
     }
     
     @FXML
@@ -275,15 +215,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
     	
-    	boolean ris = Query.InsertPersona(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunta Persona", "Persona Aggiunta Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertPersona(date.iterator()), "Aggiunta Persona", "Persona Aggiunta Correttamente!");
     }
     
     @FXML
@@ -299,15 +231,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
     	
-    	boolean ris = Query.ModifyPersona(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificata Persona", "Persona Modificata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyPersona(date.iterator()), "Modificata Persona", "Persona Modificata Correttamente!");
     }
     
     @FXML
@@ -323,20 +247,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(civico.getText().toString());
     	date.add(città.getText().toString());
 
-    	boolean ris = Query.DeletePersona(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellazione Persona", "Persona Cancellata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeletePersona(date.iterator()), "Cancellazione Persona", "Persona Cancellata Correttamente!");
     }
     
     @FXML
     public void showInsertIncarico() {
-    	MainApp.showInsertIncarico();
+    	Manager.showInsertIncarico();
     }
     
     @FXML
@@ -352,15 +268,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
     	
-    	boolean ris = Query.InsertIncarico(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunto Incarico", "Incarico Aggiunto Correttamente!") 
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertIncarico(date.iterator()), "Aggiunto Incarico", "Incarico Aggiunto Correttamente!");
     }
     
     @FXML
@@ -373,15 +281,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
     	
-    	boolean ris = Query.ModifyIncarico(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificato Incarico", "Incarico Modificato Correttamente!") 
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyIncarico(date.iterator()), "Modificato Incarico", "Incarico Modificato Correttamente!");
     }
     
     @FXML
@@ -394,20 +294,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(s.getText().toString());
     	date.add(r.getText().toString());
     	
-    	boolean ris = Query.DeleteIncarico(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellazione Incarico", "Incarico Cancellato Correttamente!")
-    					      .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteIncarico(date.iterator()), "Cancellazione Incarico", "Incarico Cancellato Correttamente!");
     }
     
     @FXML
     public void showInsertSerieTV() {
-    	MainApp.showInsertSerieTV();
+    	Manager.showInsertSerieTV();
     }
     
     @FXML
@@ -426,15 +318,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
     	
-    	boolean ris = Query.InsertSerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunta SerieTV", "SerieTv Aggiunta Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertSerieTv(date.iterator()), "Aggiunta SerieTV", "SerieTv Aggiunta Correttamente!");
     }
     
     @FXML
@@ -450,15 +334,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
     	
-    	boolean ris = Query.ModifySerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modfica SerieTV", "SerieTv Modificata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifySerieTv(date.iterator()), "Modfica SerieTV", "SerieTv Modificata Correttamente!");
     }
     
     @FXML
@@ -474,20 +350,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(d.getText().toString());
     	date.add(l.getText().toString());
     	
-    	boolean ris = Query.DeleteSerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellazione SerieTV", "SerieTv Cancellata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteSerieTv(date.iterator()), "Cancellazione SerieTV", "SerieTv Cancellata Correttamente!");
     }
     
     @FXML
     public void showInsertFilm() {
-    	MainApp.showInsertFilm();
+    	Manager.showInsertFilm();
     }
     
     @FXML
@@ -512,7 +380,7 @@ public class FXMLDocumentController implements Initializable {
     	if (!ris) {
     		new AlertFactory().createInformationAllert("Aggiunto Film", "Film Aggiunto Correttamente!")
     						  .showAndWait();
-    		MainApp.showVisualizzazione();
+    		Manager.showVisualizzazione();
     	} else {
     		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
@@ -536,7 +404,7 @@ public class FXMLDocumentController implements Initializable {
     	if (!ris) {
     		new AlertFactory().createInformationAllert("Modificato Film", "Film Modificato Correttamente!")
     						  .showAndWait();
-    		MainApp.showVisualizzazione();
+    		Manager.showVisualizzazione();
     	} else {
     		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
@@ -560,7 +428,7 @@ public class FXMLDocumentController implements Initializable {
     	if (!ris) {
     		new AlertFactory().createInformationAllert("Cancellato Film", "Film Cancellato Correttamente!")
     						  .showAndWait();
-    		MainApp.showVisualizzazione();
+    		Manager.showVisualizzazione();
     	} else {
     		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}*/
@@ -568,7 +436,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showInsertAcquistoFilm() {
-    	MainApp.showInsertAcquistoFilm();
+    	Manager.showInsertAcquistoFilm();
     }
     
     @FXML
@@ -584,15 +452,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.InsertAcqFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunto Acquisto Film", "Acquisto Film Aggiunto Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertAcqFilm(date.iterator()), "Aggiunto Acquisto Film", "Acquisto Film Aggiunto Correttamente!");
     }
     
     @FXML
@@ -604,15 +464,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.ModifyAcqFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificato Acquisto Film", "Acquisto Film Modificato Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyAcqFilm(date.iterator()), "Modificato Acquisto Film", "Acquisto Film Modificato Correttamente!");
     }
     
     @FXML
@@ -624,20 +476,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(da.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.ModifyAcqFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancella Acquisto Film", "Acquisto Film Cancellato Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyAcqFilm(date.iterator()), "Cancella Acquisto Film", "Acquisto Film Cancellato Correttamente!");
     }
     
     @FXML
     public void showInsertAcquistoSerieTV() {
-    	MainApp.showInsertAcquistoSerieTV();
+    	Manager.showInsertAcquistoSerieTV();
     }
     
     @FXML
@@ -653,15 +497,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.InsertAcqSerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunto Acquisto SerieTV", "Acquisto SerieTV Aggiunto Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.InsertAcqSerieTv(date.iterator()), "Aggiunto Acquisto SerieTV", "Acquisto SerieTV Aggiunto Correttamente!");
     }
     
     @FXML
@@ -673,15 +509,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.ModifyAcqSerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificato Acquisto SerieTV", "Acquisto SerieTV Modificata Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.ModifyAcqSerieTv(date.iterator()), "Modificato Acquisto SerieTV", "Acquisto SerieTV Modificata Correttamente!");
     }
     
     @FXML
@@ -693,20 +521,12 @@ public class FXMLDocumentController implements Initializable {
     	date.add(dast.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	
-    	boolean ris = Query.DeleteAcqSerieTv(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellato Acquisto SerieTV", "Acquisto SerieTV Cancellato Correttamente!")
-    						  .showAndWait();
-    		MainApp.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}
+    	this.checkElementsForm(!Query.DeleteAcqSerieTv(date.iterator()), "Cancellato Acquisto SerieTV", "Acquisto SerieTV Cancellato Correttamente!");
     }
     
     @FXML
     public void showPalinsesto() {
-    	MainApp.showPalinsesto();
+    	Manager.showPalinsesto();
     }
     
     @FXML
@@ -746,7 +566,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showPuntata() {
-    	MainApp.showPuntata();
+    	Manager.showPuntata();
     }
 
     @FXML
@@ -802,7 +622,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showCanali() throws SQLException {
-    	MainApp.showCanali();
+    	Manager.showCanali();
     }
     
     @FXML
@@ -844,7 +664,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showFilmAcquistati() {
-    	MainApp.showFilmAcquistati();
+    	Manager.showFilmAcquistati();
     }
     
     @FXML
@@ -883,7 +703,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showSerieTVAcquistate() {
-    	MainApp.showSerieTVAcquistate();
+    	Manager.showSerieTVAcquistate();
     }
     
     @FXML
@@ -927,7 +747,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showPartecipazionePersona() {
-    	MainApp.showPartecipazionePersona();
+    	Manager.showPartecipazionePersona();
     }
     
     @FXML
@@ -993,7 +813,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void showProgrammi() {
-    	MainApp.showProgrammi();
+    	Manager.showProgrammi();
     }
     
     @FXML
