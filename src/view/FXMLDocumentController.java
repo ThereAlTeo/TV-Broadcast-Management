@@ -375,15 +375,7 @@ public class FXMLDocumentController implements Initializable {
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	boolean ris = Query.InsertFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Aggiunto Film", "Film Aggiunto Correttamente!")
-    						  .showAndWait();
-    		Manager.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}*/
+    	this.checkElementsForm(!Query.InsertFilm(date.iterator()), "Aggiunto Film", "Film Aggiunto Correttamente!");*/
     }
     
     @FXML
@@ -399,15 +391,7 @@ public class FXMLDocumentController implements Initializable {
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	boolean ris = Query.ModifyFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Modificato Film", "Film Modificato Correttamente!")
-    						  .showAndWait();
-    		Manager.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}*/
+    	this.checkElementsForm(!Query.ModifyFilm(date.iterator()), "Modificato Film", "Film Modificato Correttamente!");*/
     }
     
     @FXML
@@ -423,15 +407,7 @@ public class FXMLDocumentController implements Initializable {
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	boolean ris = Query.DeleteFilm(date.iterator());
-    	
-    	if (!ris) {
-    		new AlertFactory().createInformationAllert("Cancellato Film", "Film Cancellato Correttamente!")
-    						  .showAndWait();
-    		Manager.showVisualizzazione();
-    	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
-    	}*/
+    	this.checkElementsForm(!Query.DeleteFilm(date.iterator()), "Cancellato Film", "Film Cancellato Correttamente!");*/
     }
     
     @FXML
@@ -784,8 +760,7 @@ public class FXMLDocumentController implements Initializable {
     		labelCognomePersona.setText(risAnagrafica.getString("Cognome"));
     		labelNascitaPersona.setText(Parse.getDate(risAnagrafica.getString("DataDiNasciata")));
     		labelViaPersona.setText(risAnagrafica.getString("Via") + ", " + risAnagrafica.getString("Civico"));
-    	}else
-    	{
+    	}else{
     		new AlertFactory().createInformationAllert("", "Valore non trovato").showAndWait();
     	}
     	
