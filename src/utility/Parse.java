@@ -15,7 +15,7 @@ public class Parse {
 	public static String getTime(Time time) {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(time.getHours());
-		stringBuilder.append(", ");
+		stringBuilder.append(":");
 		stringBuilder.append(time.getMinutes());
 		return stringBuilder.toString();
 	} 
