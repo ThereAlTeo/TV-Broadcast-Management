@@ -23,9 +23,9 @@
       <Label layoutX="324.0" layoutY="129.0" text="Lingua" />
       <ButtonBar layoutX="245.0" layoutY="190.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" onAction="#buttonInserisciFilm" text="Inserisci " />
-            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" onAction="#modificafilm" text="Modifica" />
-            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" onAction="#cancellafilm" prefHeight="25.0" text="Cancella" />
+            <Button mnemonicParsing="false" onAction="#buttonInserisciFilm" text="Inserisci " />
+            <Button mnemonicParsing="false" onAction="#modificafilm" text="Modifica" />
+            <Button minWidth="59.0" mnemonicParsing="false" onAction="#cancellafilm" prefHeight="25.0" text="Cancella" />
          </buttons>
       </ButtonBar>
       <TextField fx:id="cd2" layoutX="364.0" layoutY="10.0" />

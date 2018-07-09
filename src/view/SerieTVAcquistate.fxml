@@ -21,8 +21,8 @@
             <TableColumn fx:id="castSerieColumn" prefWidth="58.0" text="Nr. Cast" />
          </columns>
       </TableView>
-      <Button fx:id="buttonBack" layoutX="545.0" layoutY="422.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
-      <Button layoutX="402.0" layoutY="22.0" mnemonicParsing="false" onAction="#invioRicercaSerieTVAcquistati" prefHeight="25.0" prefWidth="41.0" styleClass="background" stylesheets="@Theme.css" text="Invia" />
+      <Button layoutX="402.0" layoutY="22.0" mnemonicParsing="false" onAction="#invioRicercaSerieTVAcquistati" prefHeight="25.0" prefWidth="41.0" text="Invia" />
       <TextField fx:id="textFieldSerieAcquistate" layoutX="253.0" layoutY="22.0" />
+      <Button layoutX="545.0" layoutY="422.0" mnemonicParsing="false" onAction="#showVisualizzazione" text="Back" />
    </children>
 </AnchorPane>

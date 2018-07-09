@@ -16,9 +16,9 @@
       <TextField fx:id="orafinereg" layoutX="324.0" layoutY="53.0" prefHeight="25.0" prefWidth="85.0" />
       <ButtonBar layoutX="208.0" layoutY="124.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" onAction="#buttonInserisciPuntata" text="Inserisci " />
-            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" onAction="#modificapuntata" text="Modifica" />
-            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" onAction="#cancellapuntata" prefHeight="25.0" text="Cancella" />
+            <Button mnemonicParsing="false" onAction="#buttonInserisciPuntata" text="Inserisci " />
+            <Button mnemonicParsing="false" onAction="#modificapuntata" text="Modifica" />
+            <Button minWidth="59.0" mnemonicParsing="false" onAction="#cancellapuntata" prefHeight="25.0" text="Cancella" />
          </buttons>
       </ButtonBar>
       <TextField fx:id="idprog" layoutX="324.0" layoutY="20.0" />

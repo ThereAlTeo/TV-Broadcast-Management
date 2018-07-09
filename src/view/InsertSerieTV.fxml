@@ -16,9 +16,9 @@
       <Label layoutX="13.0" layoutY="122.0" text="Lingua" />
       <ButtonBar layoutX="248.0" layoutY="187.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="buttonInserisciCanale" mnemonicParsing="false" onAction="#buttonInserisciSerieTv" text="Inserisci " />
-            <Button fx:id="buttonModificaCanale" mnemonicParsing="false" onAction="#modificaserietv" text="Modifica" />
-            <Button fx:id="buttonCancellaCanale" minWidth="59.0" mnemonicParsing="false" onAction="#cancellaserietv" prefHeight="25.0" text="Cancella" />
+            <Button mnemonicParsing="false" onAction="#buttonInserisciSerieTv" text="Inserisci " />
+            <Button mnemonicParsing="false" onAction="#modificaserietv" text="Modifica" />
+            <Button minWidth="59.0" mnemonicParsing="false" onAction="#cancellaserietv" prefHeight="25.0" text="Cancella" />
          </buttons>
       </ButtonBar>
       <Label layoutX="310.0" layoutY="51.0" text="Tipologia" />

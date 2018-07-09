@@ -69,6 +69,6 @@
         </items>
       </SplitPane>
       <TextField fx:id="textFieldPuntataConduttore" layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="164.0" AnchorPane.leftAnchor="10.0" />
-      <Button layoutX="175.0" layoutY="49.0" mnemonicParsing="false" onAction="#showPuntataConduttore" prefHeight="25.0" prefWidth="30.0" styleClass="background" stylesheets="@Theme.css" />
+      <Button layoutX="175.0" layoutY="49.0" mnemonicParsing="false" onAction="#showPuntataConduttore" prefHeight="25.0" prefWidth="30.0" />
    </children>
 </AnchorPane>
