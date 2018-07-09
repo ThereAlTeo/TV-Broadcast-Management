@@ -35,7 +35,7 @@ public class FXMLDocumentController implements Initializable {
     		new AlertAbstractFactory().createInformationAllert(header, contentText).showAndWait();
     		Manager.showVisualizzazione();
     	} else {
-    		new AlertAbstractFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
+    		new AlertAbstractFactory().createErrorAllert("Uno o piï¿½ Campi sono Errati!").showAndWait();
     	}
 	}
 	
@@ -200,7 +200,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    TextField cf, ddn, nome, cognome, via, civico, città, sesso;
+    TextField cf, ddn, nome, cognome, via, civico, cittï¿½, sesso;
     
     @FXML
     private void buttonInserisciPersona(ActionEvent event) throws SQLException {
@@ -213,7 +213,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(città.getText().toString());
+    	date.add(cittï¿½.getText().toString());
     	
     	this.checkElementsForm(!Query.InsertPersona(date.iterator()), "Aggiunta Persona", "Persona Aggiunta Correttamente!");
     }
@@ -229,7 +229,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(città.getText().toString());
+    	date.add(cittï¿½.getText().toString());
     	
     	this.checkElementsForm(!Query.ModifyPersona(date.iterator()), "Modificata Persona", "Persona Modificata Correttamente!");
     }
@@ -245,7 +245,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(città.getText().toString());
+    	date.add(cittï¿½.getText().toString());
 
     	this.checkElementsForm(!Query.DeletePersona(date.iterator()), "Cancellazione Persona", "Persona Cancellata Correttamente!");
     }
@@ -360,6 +360,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     TextField idf, cd2, nom, du, li;
+    @FXML
     DatePicker dc, dp;
     
     @FXML
@@ -417,6 +418,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     TextField film, canale, prezzo;
+    @FXML
     DatePicker da;
     
     @FXML
@@ -592,7 +594,7 @@ public class FXMLDocumentController implements Initializable {
         	}
     	}
     	else {
-    		new AlertAbstractFactory().createErrorAllert("ERRORE: Il valore inserito non è conforme al formato richiesto!").showAndWait();
+    		new AlertAbstractFactory().createErrorAllert("ERRORE: Il valore inserito non ï¿½ conforme al formato richiesto!").showAndWait();
     	}
     }
     
