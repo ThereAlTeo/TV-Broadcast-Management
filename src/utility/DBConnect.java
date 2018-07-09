@@ -51,4 +51,9 @@ public class DBConnect {
 		
 		return ins;
 	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+			throw new CloneNotSupportedException();
+	}
 }

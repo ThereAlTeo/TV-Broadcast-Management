@@ -3,8 +3,9 @@ package utility;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class AlertFactory {
+public class AlertAbstractFactory implements AlertAbstractFactoryInterface {
 
+	@Override
 	public Alert createErrorAllert(String contentText) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error Dialog");
@@ -14,6 +15,7 @@ public class AlertFactory {
 		return alert;
 	}
 	
+	@Override
 	public Alert createInformationAllert(String header, String contentText) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Information Dialog");

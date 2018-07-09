@@ -25,17 +25,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import controller.Manager;
 import model.*;
-import utility.AlertFactory;
+import utility.AlertAbstractFactory;
 import utility.Parse;
 
 public class FXMLDocumentController implements Initializable {
  
 	private void checkElementsForm(boolean condition, String header, String contentText) {
 		if (condition) {
-    		new AlertFactory().createInformationAllert(header, contentText).showAndWait();
+    		new AlertAbstractFactory().createInformationAllert(header, contentText).showAndWait();
     		Manager.showVisualizzazione();
     	} else {
-    		new AlertFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
+    		new AlertAbstractFactory().createErrorAllert("Uno o più Campi sono Errati!").showAndWait();
     	}
 	}
 	
@@ -592,7 +592,7 @@ public class FXMLDocumentController implements Initializable {
         	}
     	}
     	else {
-    		new AlertFactory().createErrorAllert("ERRORE: Il valore inserito non è conforme al formato richiesto!").showAndWait();
+    		new AlertAbstractFactory().createErrorAllert("ERRORE: Il valore inserito non è conforme al formato richiesto!").showAndWait();
     	}
     }
     
@@ -761,7 +761,7 @@ public class FXMLDocumentController implements Initializable {
     		labelNascitaPersona.setText(Parse.getDate(risAnagrafica.getString("DataDiNasciata")));
     		labelViaPersona.setText(risAnagrafica.getString("Via") + ", " + risAnagrafica.getString("Civico"));
     	}else{
-    		new AlertFactory().createInformationAllert("", "Valore non trovato").showAndWait();
+    		new AlertAbstractFactory().createInformationAllert("", "Valore non trovato").showAndWait();
     	}
     	
     	if(risTable.next()) {
@@ -782,7 +782,7 @@ public class FXMLDocumentController implements Initializable {
     		stipendioColumn.setCellValueFactory(value -> value.getValue().stipendioProperty().asString());
     		ruoloColumn.setCellValueFactory(value -> value.getValue().ruoloProperty());
     	}else {
-    		new AlertFactory().createInformationAllert("", "Valore non trovato").showAndWait();
+    		new AlertAbstractFactory().createInformationAllert("", "Valore non trovato").showAndWait();
     	}
     }
     
