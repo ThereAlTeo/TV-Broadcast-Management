@@ -360,54 +360,54 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     TextField idf, cd2, nom, du, li;
-    DatePicker dp, dc;
+    DatePicker dc, dp;
     
     @FXML
     private void buttonInserisciFilm(ActionEvent event) throws SQLException {
-    	/*ArrayList<String> date = new ArrayList<String>();
+    	ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
-    	date.add(dc.getText().toString());
-    	date.add(dp.getValue()
+    	date.add(du.getText().toString());
+    	date.add(dc.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	date.add(du.getValue()
+    	date.add(dp.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	this.checkElementsForm(!Query.InsertFilm(date.iterator()), "Aggiunto Film", "Film Aggiunto Correttamente!");*/
+    	this.checkElementsForm(!Query.InsertFilm(date.iterator()), "Aggiunto Film", "Film Aggiunto Correttamente!");
     }
     
     @FXML
     private void modificafilm(ActionEvent event) throws SQLException {
-    	/*ArrayList<String> date = new ArrayList<String>();
+    	ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
-    	date.add(dc.getText().toString());
-    	date.add(dp.getValue()
+    	date.add(du.getText().toString());
+    	date.add(dc.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	date.add(du.getValue()
+    	date.add(dp.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	this.checkElementsForm(!Query.ModifyFilm(date.iterator()), "Modificato Film", "Film Modificato Correttamente!");*/
+    	this.checkElementsForm(!Query.ModifyFilm(date.iterator()), "Modificato Film", "Film Modificato Correttamente!");
     }
     
     @FXML
     private void cancellafilm(ActionEvent event) throws SQLException {
-    	/*ArrayList<String> date = new ArrayList<String>();
+    	ArrayList<String> date = new ArrayList<String>();
     	date.add(idf.getText().toString());
     	date.add(cd2.getText().toString());
     	date.add(nom.getText().toString());
-    	date.add(dc.getText().toString());
-    	date.add(dp.getValue()
+    	date.add(du.getText().toString());
+    	date.add(dc.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
-    	date.add(du.getValue()
+    	date.add(dp.getValue()
 				  .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString());
     	date.add(li.getText().toString());
     	
-    	this.checkElementsForm(!Query.DeleteFilm(date.iterator()), "Cancellato Film", "Film Cancellato Correttamente!");*/
+    	this.checkElementsForm(!Query.DeleteFilm(date.iterator()), "Cancellato Film", "Film Cancellato Correttamente!");
     }
     
     @FXML
