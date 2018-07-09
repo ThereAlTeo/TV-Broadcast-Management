@@ -200,7 +200,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    TextField cf, ddn, nome, cognome, via, civico, citt�, sesso;
+    TextField cf, ddn, nome, cognome, via, civico, citta, sesso;
     
     @FXML
     private void buttonInserisciPersona(ActionEvent event) throws SQLException {
@@ -213,7 +213,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(citt�.getText().toString());
+    	date.add(citta.getText().toString());
     	
     	this.checkElementsForm(!Query.InsertPersona(date.iterator()), "Aggiunta Persona", "Persona Aggiunta Correttamente!");
     }
@@ -229,7 +229,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(citt�.getText().toString());
+    	date.add(citta.getText().toString());
     	
     	this.checkElementsForm(!Query.ModifyPersona(date.iterator()), "Modificata Persona", "Persona Modificata Correttamente!");
     }
@@ -245,7 +245,7 @@ public class FXMLDocumentController implements Initializable {
     	date.add(ddn.getText().toString());
     	date.add(via.getText().toString());
     	date.add(civico.getText().toString());
-    	date.add(citt�.getText().toString());
+    	date.add(citta.getText().toString());
 
     	this.checkElementsForm(!Query.DeletePersona(date.iterator()), "Cancellazione Persona", "Persona Cancellata Correttamente!");
     }
